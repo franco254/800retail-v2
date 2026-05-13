@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — 800 Retail Solutions</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.filter-bar { background: var(--dark); border-bottom: 1px solid var(--dark3); position: sticky; top: 68px; z-index: 100; }
+.filter-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; gap: 2px; overflow-x: auto; }
+.f-btn { font-family: var(--cond); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 16px 20px; color: var(--gray); background: none; border: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: color .2s, border-color .2s; cursor: pointer; }
+.f-btn:hover { color: var(--white); }
+.f-btn.on { color: var(--red); border-bottom-color: var(--red); }
+
+.case-study { display: grid; grid-template-columns: 1fr 1fr; background: var(--dark2); }
+.case-img { width: 100%; min-height: 480px; object-fit: cover; filter: brightness(.75); }
+.case-content { padding: 60px 52px; display: flex; flex-direction: column; justify-content: center; }
+.case-tag { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.case-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+.case-title { font-family: var(--serif); font-size: clamp(28px,3.5vw,50px); font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.1; }
+.case-loc { font-family: var(--cond); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+.case-body { font-size: 14px; line-height: 1.85; color: var(--gray-lt); margin-bottom: 28px; }
+.case-facts { display: flex; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+.cf-n { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--white); line-height: 1; }
+.cf-n sup { font-size: 14px; color: var(--red); }
+.cf-l { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
+
+.mosaic { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.m-cell { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+.m-cell.tall { aspect-ratio: 3/4; }
+.m-cell.wide { grid-column: span 2; aspect-ratio: 16/7; }
+.m-img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease), filter .4s; filter: brightness(.68); }
+.m-cell:hover .m-img { transform: scale(1.05); filter: brightness(.84); }
+.m-over { position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,12,12,.92) 0%, transparent 52%); opacity: 0; transition: opacity .3s; }
+.m-cell:hover .m-over { opacity: 1; }
+.m-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; }
+.m-cell:hover .m-info { opacity: 1; transform: none; }
+.m-client { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 3px; }
+.m-name { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--white); }
+.m-loc { font-family: var(--cond); font-size: 9px; letter-spacing: .14em; color: var(--silver); margin-top: 2px; }
+
+.proj-cta-band { text-align: center; padding: 60px var(--pad); border-top: 1px solid var(--dark3); }
+.proj-cta-band p { font-family: var(--cond); font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+
+@media(max-width:1024px){
+  .case-study { grid-template-columns: 1fr; }
+  .case-img { min-height: 300px; }
+  .case-content { padding: 40px var(--pad); }
+  .mosaic { grid-template-columns: 1fr 1fr; }
+  .m-cell.wide { grid-column: span 1; aspect-ratio: 4/3; }
+  .m-cell.tall { aspect-ratio: 4/3; }
+}
+@media(max-width:768px){
+  .mosaic { grid-template-columns: 1fr; }
+  .filter-inner { gap: 0; }
+}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></a><ul class="nav-menu"><li class="nav-item"><span data-toggle>Company <span class="nav-chevron"></span></span><div class="nav-dropdown wide"><div class="dd-col"><div class="dd-heading">About</div><a href="company.html" class="dd-link">Who We Are <span class="dd-arrow">→</span></a><a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a><a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a><a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a><a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a></div><div class="dd-col"><div class="dd-heading">Services</div><a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a><a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a><a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a><a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="careers.html" class="dd-link">Careers <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><span data-toggle>Reference <span class="nav-chevron"></span></span><div class="nav-dropdown"><div class="dd-col"><div class="dd-heading">Portfolio</div><a href="projects.html" class="dd-link active">All Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">LED Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a><div class="dd-divider"></div><div class="dd-heading">By Industry</div><a href="projects.html" class="dd-link">Fashion & Apparel <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Sports & Footwear <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Hypermarket <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><a href="contact.html">Contact</a></li></ul><div class="nav-right"><a href="contact.html" class="nav-cta">Request Consultation</a><button class="nav-burger" id="burger"><span></span><span></span><span></span></button></div></div></nav>
+<div id="nav-drawer"><div class="drawer-inner"><div class="drawer-section"><div class="drawer-section-title">Company</div><a href="company.html" class="drawer-link">Who We Are</a><a href="company.html#history" class="drawer-link">Our History</a><a href="company.html#locations" class="drawer-link">Locations</a></div><div class="drawer-section"><div class="drawer-section-title">Services</div><a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a><a href="services.html#led" class="drawer-link">Retail LED</a><a href="services.html#lighting" class="drawer-link">Retail Lighting</a><a href="services.html#fitout" class="drawer-link">Store Fitout</a></div><div class="drawer-section"><div class="drawer-section-title">Reference</div><a href="projects.html" class="drawer-link">All Projects</a></div><div class="drawer-section"><div class="drawer-section-title">More</div><a href="careers.html" class="drawer-link">Careers</a></div><a href="contact.html" class="drawer-cta">Request Consultation →</a></div></div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-bg-num">9,500</div>
+    <div class="page-hero-eyebrow">Project Portfolio</div>
+    <h1>9,500+ stores.<br><em>25+ countries.</em></h1>
+    <p>From flagship boutiques to multi-country hypermarket rollouts — retail environments that perform and endure.</p>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-inner" data-filter-group>
+      <button class="f-btn on" data-filter="all">All Projects</button>
+      <button class="f-btn" data-filter="fixtures">Fixtures</button>
+      <button class="f-btn" data-filter="led">LED & Lighting</button>
+      <button class="f-btn" data-filter="fitout">Fitout</button>
+      <button class="f-btn" data-filter="uae">UAE</button>
+      <button class="f-btn" data-filter="ksa">KSA</button>
+      <button class="f-btn" data-filter="international">International</button>
+    </div>
+  </div>
+
+  <div class="case-study">
+    <img class="case-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0009_Adidas-Fifa-World-Cup-2022-Kiosks-Project-QATAR-KSA-UA-13.jpg" alt="FIFA World Cup" onerror="this.style.background='#1C1C1C'">
+    <div class="case-content">
+      <div class="case-tag">Featured Case Study</div>
+      <h2 class="case-title">Adidas FIFA World Cup Kiosks</h2>
+      <div class="case-loc">Qatar · KSA · UAE · 2022</div>
+      <p class="case-body">A landmark project delivering custom-fabricated retail kiosks across three countries in coordination with Adidas and FIFA. High-traffic environments requiring precision engineering, rapid multi-country deployment, and consistent brand execution at global scale.</p>
+      <div class="case-facts">
+        <div><div class="cf-n">3<sup>+</sup></div><div class="cf-l">Countries</div></div>
+        <div><div class="cf-n">60<sup>+</sup></div><div class="cf-l">Kiosk Units</div></div>
+        <div><div class="cf-n">6<sup>wks</sup></div><div class="cf-l">Deployment</div></div>
+      </div>
+      <a href="contact.html" class="btn btn-red btn-arrow">Discuss a Similar Project</a>
+    </div>
+  </div>
+
+  <div class="mosaic">
+    <div class="m-cell wide"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0000_WhatsApp-Image-2023-12-04-at-4.07.06-PM-2.jpg" alt="Adidas" onerror="this.style.background='#1C1C1C'"><div class="m-over"></div><div class="m-info"><div class="m-client">Adidas</div><div class="m-name">Ibn Battuta Mall</div><div class="m-loc">Dubai, UAE · Retail Fixtures</div></div></div>
+    <div class="m-cell tall"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0004_WhatsApp-Image-2023-09-18-at-12.07.04-AM.jpg" alt="BOSS" onerror="this.style.background='#252525'"><div class="m-over"></div><div class="m-info"><div class="m-client">BOSS</div><div class="m-name">Doha Festival City</div><div class="m-loc">Qatar · Full Fitout</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0010_WhatsApp-Image-2025-07-09-at-5.46.25-PM.jpg" alt="Nesto" onerror="this.style.background='#1C1C1C'"><div class="m-over"></div><div class="m-info"><div class="m-client">Nesto</div><div class="m-name">Mia Mall</div><div class="m-loc">UAE · Hypermarket Fixtures</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0008_ADIDAS-PULSE-KALBA-IMAGES-0007.jpg" alt="Adidas Pulse" onerror="this.style.background='#252525'"><div class="m-over"></div><div class="m-info"><div class="m-client">Adidas</div><div class="m-name">Pulse Store, Kalba</div><div class="m-loc">UAE · Full Fitout</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/11/Vero-Moda-Burjman-Dubai-001.jpg" alt="Vero Moda" onerror="this.style.background='#1C1C1C'"><div class="m-over"></div><div class="m-info"><div class="m-client">Vero Moda</div><div class="m-name">BurJuman Centre</div><div class="m-loc">Dubai, UAE · LED</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/09/JACK-AND-JONES.png" alt="Jack and Jones" onerror="this.style.background='#252525'"><div class="m-over"></div><div class="m-info"><div class="m-client">Jack & Jones</div><div class="m-name">UAE Multi-Location</div><div class="m-loc">UAE · Retail Fixtures</div></div></div>
+    <div class="m-cell wide"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0001_WhatsApp-Image-2023-09-18-at-12.19.18-AM.jpg" alt="Apparel Group" onerror="this.style.background='#1C1C1C'"><div class="m-over"></div><div class="m-info"><div class="m-client">Apparel Group</div><div class="m-name">Multi-Brand Rollout</div><div class="m-loc">UAE · KSA · Retail Fixtures</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0002_WhatsApp-Image-2023-09-18-at-12.18.18-AM.jpg" alt="Landmark" onerror="this.style.background='#252525'"><div class="m-over"></div><div class="m-info"><div class="m-client">Landmark Group</div><div class="m-name">Store Environment</div><div class="m-loc">UAE · Full Fitout</div></div></div>
+    <div class="m-cell"><img class="m-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0003_WhatsApp-Image-2023-09-18-at-12.14.24-AM.jpg" alt="Birkenstock" onerror="this.style.background='#1C1C1C'"><div class="m-over"></div><div class="m-info"><div class="m-client">Birkenstock</div><div class="m-name">Flagship Fixtures</div><div class="m-loc">UAE · Premium Fixtures</div></div></div>
+  </div>
+
+  <div class="proj-cta-band">
+    <p>Have a project in mind?</p>
+    <a href="contact.html" class="btn btn-red btn-arrow">Start a Conversation</a>
+  </div>
+</div>
+
+<footer><div class="footer-main"><div class="footer-brand"><div class="f-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></div><p class="body">The Middle East's largest retail fixture manufacturer.</p><div class="f-socials"><a href="https://www.facebook.com/800SIGN" target="_blank" class="f-soc">fb</a><a href="https://www.instagram.com/retailfixtures" target="_blank" class="f-soc">ig</a><a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="f-soc">in</a></div></div><div class="footer-col"><h5>Portfolio</h5><ul><li><a href="projects.html">All Projects</a></li><li><a href="projects.html">Retail Fixtures</a></li><li><a href="projects.html">LED & Lighting</a></li><li><a href="projects.html">Store Fitout</a></li></ul></div><div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#fixtures">Retail Fixtures</a></li><li><a href="services.html#led">Retail LED</a></li><li><a href="services.html#lighting">Retail Lighting</a></li><li><a href="services.html#fitout">Fitout</a></li></ul></div><div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li><li><a href="tel:+971505774860">+971 50 577 4860</a></li></ul></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group</p><p class="footer-mark">Certified <span>Made in UAE</span></p></div></footer>
+<div class="contact-bar"><a href="https://wa.me/971505774860" target="_blank" title="WhatsApp">💬</a><a href="tel:+971505774860" title="Call">📞</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>

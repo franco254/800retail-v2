@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Company — 800 Retail Solutions</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.section { padding: 80px 0; }
+.section-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.section-dark { background: var(--dark); }
+
+.story-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 48px; }
+.story-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: brightness(.82); }
+.story-kpis { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border: 1px solid var(--dark3); margin: 32px 0; }
+.sk { padding: 20px; border-right: 1px solid var(--dark3); border-bottom: 1px solid var(--dark3); }
+.sk:nth-child(2n) { border-right: none; }
+.sk:nth-child(3), .sk:nth-child(4) { border-bottom: none; }
+.sk-n { font-family: var(--serif); font-size: 38px; font-weight: 400; color: var(--white); line-height: 1; }
+.sk-n sup { font-size: 16px; color: var(--red); }
+.sk-l { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gray); margin-top: 5px; }
+
+.tl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.tl-card { background: var(--dark2); padding: 36px 28px; border-top: 3px solid transparent; transition: border-color .3s; }
+.tl-card:hover { border-color: var(--red); }
+.tl-year { font-family: var(--serif); font-size: 54px; font-weight: 400; color: rgba(255,255,255,.06); line-height: 1; margin-bottom: 14px; }
+.tl-title { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.tl-desc { font-size: 13px; line-height: 1.8; color: var(--gray); }
+
+.loc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.loc-card { background: var(--dark2); padding: 40px 32px; position: relative; overflow: hidden; }
+.loc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height .4s var(--ease); }
+.loc-card:hover::before { height: 100%; }
+.loc-region { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.loc-region::before { content: ''; width: 16px; height: 1px; background: var(--red); }
+.loc-city { font-family: var(--serif); font-size: 34px; font-weight: 400; color: var(--white); margin-bottom: 4px; }
+.loc-since { font-family: var(--cond); font-size: 9.5px; letter-spacing: .15em; color: var(--gray); margin-bottom: 20px; }
+.loc-fact { font-size: 13px; line-height: 1.85; color: var(--gray-lt); margin-bottom: 3px; }
+.loc-fact strong { color: var(--silver); font-weight: 400; }
+
+.cert-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.cert-card { background: var(--dark2); padding: 40px 24px; border-bottom: 3px solid transparent; transition: border-color .3s; text-align: center; }
+.cert-card:hover { border-color: var(--red); }
+.cert-ico { font-size: 36px; margin-bottom: 16px; display: block; }
+.cert-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+.cert-desc { font-size: 12.5px; line-height: 1.75; color: var(--gray); }
+
+.method-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.method-card { background: var(--dark2); padding: 36px 20px; text-align: center; border-top: 3px solid transparent; transition: border-color .3s, background .3s; }
+.method-card:hover { border-color: var(--red); background: var(--dark3); }
+.method-letter { font-family: var(--serif); font-size: 64px; font-weight: 400; color: rgba(196,30,30,.18); line-height: 1; margin-bottom: 10px; }
+.method-name { font-family: var(--cond); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.method-desc { font-size: 12px; line-height: 1.75; color: var(--gray); }
+
+.ob-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 48px; }
+.ob-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: brightness(.8); }
+
+@media(max-width:1024px) {
+  .story-layout,.ob-layout { grid-template-columns: 1fr; gap: 40px; }
+  .tl-grid,.loc-grid { grid-template-columns: 1fr 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .method-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:768px) {
+  .tl-grid,.loc-grid,.cert-grid { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr 1fr; }
+  .story-kpis { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></a><ul class="nav-menu"><li class="nav-item"><span data-toggle>Company <span class="nav-chevron"></span></span><div class="nav-dropdown wide"><div class="dd-col"><div class="dd-heading">About</div><a href="company.html" class="dd-link active">Who We Are <span class="dd-arrow">→</span></a><a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a><a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a><a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a><a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a></div><div class="dd-col"><div class="dd-heading">Services</div><a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a><a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a><a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a><a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="careers.html" class="dd-link">Careers <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><span data-toggle>Reference <span class="nav-chevron"></span></span><div class="nav-dropdown"><div class="dd-col"><div class="dd-heading">Portfolio</div><a href="projects.html" class="dd-link">All Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">LED Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><a href="contact.html">Contact</a></li></ul><div class="nav-right"><a href="contact.html" class="nav-cta">Request Consultation</a><button class="nav-burger" id="burger"><span></span><span></span><span></span></button></div></div></nav>
+<div id="nav-drawer"><div class="drawer-inner"><div class="drawer-section"><div class="drawer-section-title">Company</div><a href="company.html" class="drawer-link">Who We Are</a><a href="company.html#history" class="drawer-link">Our History</a><a href="company.html#locations" class="drawer-link">Locations</a><a href="company.html#certifications" class="drawer-link">Certifications</a></div><div class="drawer-section"><div class="drawer-section-title">Services</div><a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a><a href="services.html#led" class="drawer-link">Retail LED</a><a href="services.html#lighting" class="drawer-link">Retail Lighting</a><a href="services.html#fitout" class="drawer-link">Store Fitout</a></div><div class="drawer-section"><div class="drawer-section-title">Reference</div><a href="projects.html" class="drawer-link">All Projects</a></div><div class="drawer-section"><div class="drawer-section-title">More</div><a href="careers.html" class="drawer-link">Careers</a></div><a href="contact.html" class="drawer-cta">Request Consultation →</a></div></div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-bg-num">1997</div>
+    <div class="page-hero-eyebrow">Al Ameen Group</div>
+    <h1>A manufacturing <em>legacy</em><br>built since 1997</h1>
+    <p>From a niche fabricator in Dubai to the Middle East's largest retail fixture manufacturer — operating across UAE, KSA, and China.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="story-layout">
+        <img class="story-img rv" src="https://800retail.com/wp-content/uploads/2025/07/QUOTE-0707-06-scaled.jpg" alt="Al Ameen Group" onerror="this.style.background='#1C1C1C'">
+        <div>
+          <div class="s-label rv">Who We Are</div>
+          <h2 class="h2 rv d1">The origin of our <em>journey</em></h2>
+          <p class="body rv d2" style="margin-bottom:16px">Al Ameen Group is the largest fixture manufacturing company in the Middle East. We are committed to delivering functional, innovative, and revolutionary solutions — with a culture of value woven through every project.</p>
+          <p class="body rv d2" style="margin-bottom:16px">800 Retail Solutions is our manufacturing brand — specialising in custom-designed retail furniture, displays and consumer goods. We collaborate closely with clients to deliver the highest-quality products, supported by our in-house design team, technicians and cutting-edge equipment.</p>
+          <p class="body rv d3">We proudly bear the "Made in UAE" unified national mark — a symbol of formality and trust for locally manufactured solutions, recognised across 25+ countries.</p>
+          <div class="story-kpis rv d3">
+            <div class="sk"><div class="sk-n">300<sup>k+</sup></div><div class="sk-l">Sq ft Facility</div></div>
+            <div class="sk"><div class="sk-n">450<sup>+</sup></div><div class="sk-l">Employees</div></div>
+            <div class="sk"><div class="sk-n">9,500<sup>+</sup></div><div class="sk-l">Store Counters</div></div>
+            <div class="sk"><div class="sk-n">25<sup>+</sup></div><div class="sk-l">Countries</div></div>
+          </div>
+          <a href="contact.html" class="btn btn-red btn-arrow rv">Start a Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="history">
+    <div class="section-inner">
+      <div class="s-label rv">Our History</div>
+      <h2 class="h2 rv d1">Three decades of <em>growth</em></h2>
+      <div class="tl-grid">
+        <div class="tl-card rv"><div class="tl-year">1997</div><div class="tl-title">Founded in UAE</div><p class="tl-desc">Al Ameen Group established in Dubai. Early focus on custom retail fabrication for regional brands.</p></div>
+        <div class="tl-card rv d1"><div class="tl-year">2004</div><div class="tl-title">800 Retail Brand Launched</div><p class="tl-desc">800 Retail Solutions introduced as the dedicated manufacturing brand for custom retail fixtures and furniture.</p></div>
+        <div class="tl-card rv d2"><div class="tl-year">2010</div><div class="tl-title">300,000 sq ft Facility</div><p class="tl-desc">Major expansion into a state-of-the-art manufacturing complex — one of the largest retail fixture facilities in the region.</p></div>
+        <div class="tl-card rv"><div class="tl-year">2019</div><div class="tl-title">Made in UAE Certified</div><p class="tl-desc">Awarded the unified national manufacturing mark — formal recognition of local production quality and standards.</p></div>
+        <div class="tl-card rv d1"><div class="tl-year">2022</div><div class="tl-title">FIFA World Cup & KSA Launch</div><p class="tl-desc">Delivered Adidas retail kiosks across Qatar, KSA and UAE. Al Ameen Industries established in Riyadh.</p></div>
+        <div class="tl-card rv d2"><div class="tl-year">2023</div><div class="tl-title">China Sourcing Hub</div><p class="tl-desc">Procurement and production hub opened in Foshan — enabling global supply chain access and agile manufacturing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="locations">
+    <div class="section-inner">
+      <div class="s-label rv">Global Presence</div>
+      <h2 class="h2 rv d1">Three regions. <em>One standard.</em></h2>
+      <div class="loc-grid">
+        <div class="loc-card rv">
+          <div class="loc-region">UAE</div>
+          <div class="loc-city">Dubai</div>
+          <div class="loc-since">Headquarters · Since 1997</div>
+          <p class="loc-fact"><strong>Facility:</strong> 300,000+ sq ft</p>
+          <p class="loc-fact"><strong>Team:</strong> 450+ employees</p>
+          <p class="loc-fact"><strong>12</strong> production departments</p>
+          <p class="loc-fact">Experience Centre for client visits</p>
+          <p class="loc-fact" style="margin-top:14px;font-family:var(--cond);font-size:10px;letter-spacing:.12em;color:var(--dark4)">+971 50 577 4860 · ask@800retail.com</p>
+        </div>
+        <div class="loc-card rv d1">
+          <div class="loc-region">KSA</div>
+          <div class="loc-city">Riyadh</div>
+          <div class="loc-since">Al Ameen Industries · Since 2022</div>
+          <p class="loc-fact"><strong>Facility:</strong> 40,000+ sq ft</p>
+          <p class="loc-fact"><strong>Team:</strong> 50+ employees</p>
+          <p class="loc-fact">Experience Centres in Riyadh & Jeddah</p>
+          <p class="loc-fact">Full Kingdom coverage</p>
+        </div>
+        <div class="loc-card rv d2">
+          <div class="loc-region">China</div>
+          <div class="loc-city">Foshan</div>
+          <div class="loc-since">Al Ameen Global · Since 2023</div>
+          <p class="loc-fact"><strong>Procurement Hub:</strong> 6,000+ sq ft</p>
+          <p class="loc-fact"><strong>Production:</strong> 40,000+ sq ft (planned)</p>
+          <p class="loc-fact">Material selection & vendor management</p>
+          <p class="loc-fact">Global supply chain integration</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="certifications">
+    <div class="section-inner">
+      <div class="s-label rv">Standards & Certifications</div>
+      <h2 class="h2 rv d1">Quality you can <em>verify</em></h2>
+      <div class="cert-grid">
+        <div class="cert-card rv"><span class="cert-ico">🇦🇪</span><div class="cert-name">Made in UAE</div><p class="cert-desc">Unified national manufacturing mark — formal certification of locally produced quality, recognised in 25+ countries.</p></div>
+        <div class="cert-card rv d1"><span class="cert-ico">⬜</span><div class="cert-name">5S Methodology</div><p class="cert-desc">Japanese lean manufacturing principles across all 12 divisions — Sort, Set, Shine, Standardise, Sustain.</p></div>
+        <div class="cert-card rv d2"><span class="cert-ico">♻</span><div class="cert-name">Sustainable Materials</div><p class="cert-desc">80% sustainable material usage across all production. Eco-responsible sourcing in every project brief.</p></div>
+        <div class="cert-card rv d3"><span class="cert-ico">🛡</span><div class="cert-name">5-Year Defect Liability</div><p class="cert-desc">Industry-leading post-handover guarantee — the longest offered by any retail fixture manufacturer in the region.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="s-label rv">Production Methodology</div>
+      <h2 class="h2 rv d1">The <em>5S</em> framework</h2>
+      <p class="body rv d2" style="max-width:580px;margin-top:12px">Every department operates under the Japanese 5S lean manufacturing system — the foundation of our consistent, defect-free production quality.</p>
+      <div class="method-grid">
+        <div class="method-card rv"><div class="method-letter">S</div><div class="method-name">Sort</div><p class="method-desc">Remove unnecessary items. Every tool and material has a defined purpose.</p></div>
+        <div class="method-card rv d1"><div class="method-letter">S</div><div class="method-name">Set in Order</div><p class="method-desc">Arrange necessary items in the most efficient order. Everything in its place.</p></div>
+        <div class="method-card rv d2"><div class="method-letter">S</div><div class="method-name">Shine</div><p class="method-desc">Clean and inspect daily. Defects spotted before they become problems.</p></div>
+        <div class="method-card rv d3"><div class="method-letter">S</div><div class="method-name">Standardise</div><p class="method-desc">Create standards for the first three S's. Consistency across all 12 departments.</p></div>
+        <div class="method-card rv d4"><div class="method-letter">S</div><div class="method-name">Sustain</div><p class="method-desc">Maintain and review standards. Continuous improvement built into culture.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="own-brand">
+    <div class="section-inner">
+      <div class="ob-layout">
+        <img class="ob-img rv" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0008_ADIDAS-PULSE-KALBA-IMAGES-0007.jpg" alt="Own Brand" onerror="this.style.background='#1C1C1C'">
+        <div>
+          <div class="s-label rv">Own Brand</div>
+          <h2 class="h2 rv d1">Our own <em>product lines</em></h2>
+          <p class="body rv d2" style="margin-bottom:16px">Beyond bespoke client projects, Al Ameen Group develops and manufactures its own range of retail display solutions — modular, configurable systems available for immediate delivery across the region.</p>
+          <p class="body rv d2" style="margin-bottom:28px">Own-brand products offer a faster route to store-ready fixtures for clients who need proven solutions without the lead time of a fully custom project.</p>
+          <a href="contact.html" class="btn btn-red btn-arrow rv d3">Enquire About Own Brand</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ceo-section" id="ceo">
+    <img class="ceo-img rv" src="https://800retail.com/wp-content/uploads/2025/07/CEO-02-1.jpg" alt="Muhammed Manaf, CEO" onerror="this.style.display='none'">
+    <div class="rv d1">
+      <div class="ceo-mark">"</div>
+      <blockquote class="ceo-quote">Every space we build has a soul — because behind every project, there's a person, a purpose, a vision. For me, it's never about how big or small the project is. It's about meaning. That moment when a client walks through their completed project and quietly smiles — that's everything.</blockquote>
+      <div class="ceo-name">Muhammed Manaf</div>
+      <div class="ceo-title">CEO, Al Ameen Group</div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="footer-main"><div class="footer-brand"><div class="f-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></div><p class="body">The Middle East's largest retail fixture manufacturer since 1997.</p><div class="f-socials"><a href="https://www.facebook.com/800SIGN" target="_blank" class="f-soc">fb</a><a href="https://www.instagram.com/retailfixtures" target="_blank" class="f-soc">ig</a><a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="f-soc">in</a></div></div><div class="footer-col"><h5>Company</h5><ul><li><a href="company.html">Who We Are</a></li><li><a href="company.html#history">Our History</a></li><li><a href="company.html#locations">Locations</a></li><li><a href="company.html#certifications">Certifications</a></li><li><a href="company.html#ceo">CEO Message</a></li></ul></div><div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#fixtures">Retail Fixtures</a></li><li><a href="services.html#led">Retail LED</a></li><li><a href="services.html#lighting">Retail Lighting</a></li><li><a href="services.html#fitout">Store Fitout</a></li></ul></div><div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Request Consultation</a></li><li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li><li><a href="tel:+971505774860">+971 50 577 4860</a></li><li><a href="careers.html">Careers</a></li></ul></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group · All rights reserved</p><p class="footer-mark">Certified <span>Made in UAE</span> · Serving 25+ Countries</p></div></footer>
+<div class="contact-bar"><a href="https://wa.me/971505774860" target="_blank" title="WhatsApp">💬</a><a href="tel:+971505774860" title="Call">📞</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>

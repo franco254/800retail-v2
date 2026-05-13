@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services — 800 Retail Solutions</title>
+<meta name="description" content="Retail fixtures, LED display systems, architectural lighting, and full store fitout. End-to-end manufacturing from our 300,000 sq ft UAE facility.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.svc-section { padding: 80px 0; border-bottom: 1px solid var(--dark3); }
+.svc-section:last-of-type { border-bottom: none; }
+.svc-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.svc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 48px; }
+.svc-layout.rev { direction: rtl; }
+.svc-layout.rev > * { direction: ltr; }
+.svc-big-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; filter: brightness(0.82); }
+.feature-list { display: flex; flex-direction: column; }
+.fi { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--dark3); transition: padding-left .2s; }
+.fi:hover { padding-left: 6px; }
+.fi-n { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .2em; color: var(--red); padding-top: 2px; }
+.fi-title { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+.fi-desc { font-size: 13px; line-height: 1.75; color: var(--gray); }
+
+.dept-section { background: var(--dark); padding: 80px 0; }
+.dept-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.dept-card { background: var(--dark2); padding: 32px 28px; border-bottom: 3px solid transparent; transition: border-color .3s, background .3s; }
+.dept-card:hover { border-color: var(--red); background: var(--dark3); }
+.dept-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 18px; filter: brightness(.78); }
+.dept-sub { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+.dept-title { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.dept-desc { font-size: 13px; line-height: 1.75; color: var(--gray); }
+
+.ind-section { padding: 80px 0; }
+.ind-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.ind-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
+.ind-tag { font-family: var(--cond); font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; border: 1px solid var(--dark3); padding: 10px 16px; color: var(--gray); background: none; transition: all .2s; cursor: pointer; }
+.ind-tag:hover, .ind-tag.on { color: var(--white); background: var(--red); border-color: var(--red); }
+
+.adv-section { background: var(--dark); padding: 80px 0; }
+.adv-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.adv-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 48px; }
+.adv-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: brightness(.78); position: sticky; top: 100px; }
+.adv-list { display: flex; flex-direction: column; }
+.adv-item { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--dark3); transition: padding-left .2s; }
+.adv-item:hover { padding-left: 6px; }
+.adv-n { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .2em; color: var(--red); padding-top: 2px; }
+.adv-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.adv-desc { font-size: 13px; line-height: 1.8; color: var(--gray); }
+
+.cta-band { background: var(--red); padding: 64px var(--pad); display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.cta-band h2 { font-family: var(--serif); font-size: clamp(26px,3.5vw,48px); font-weight: 400; color: var(--white); line-height: 1.1; }
+.cta-band h2 em { font-style: italic; }
+.btn-dark { display: inline-flex; align-items: center; gap: 10px; font-family: var(--cond); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 14px 32px; background: var(--black); color: var(--white); border: 1.5px solid var(--black); transition: background .2s; white-space: nowrap; }
+.btn-dark:hover { background: var(--dark3); }
+
+@media(max-width:1024px){
+  .svc-layout, .svc-layout.rev { grid-template-columns: 1fr; direction: ltr; gap: 40px; }
+  .adv-layout { grid-template-columns: 1fr; }
+  .adv-img { display: none; }
+  .dept-grid { grid-template-columns: 1fr 1fr; }
+  .cta-band { flex-direction: column; align-items: flex-start; }
+}
+@media(max-width:768px){
+  .dept-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38">
+      <span class="logo-fallback"><span class="r">800</span> RETAIL</span>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <span data-toggle>Company <span class="nav-chevron"></span></span>
+        <div class="nav-dropdown wide">
+          <div class="dd-col">
+            <div class="dd-heading">About</div>
+            <a href="company.html" class="dd-link">Who We Are <span class="dd-arrow">→</span></a>
+            <a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a>
+            <a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a>
+            <a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a>
+            <a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-heading">Services</div>
+            <a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a>
+            <a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a>
+            <a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a>
+            <a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <a href="careers.html" class="dd-link">Careers <span class="dd-arrow">→</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span data-toggle>Reference <span class="nav-chevron"></span></span>
+        <div class="nav-dropdown">
+          <div class="dd-col">
+            <div class="dd-heading">Portfolio</div>
+            <a href="projects.html" class="dd-link">All Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html" class="dd-link">LED Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <div class="dd-heading">By Industry</div>
+            <a href="projects.html" class="dd-link">Fashion & Apparel <span class="dd-arrow">→</span></a>
+            <a href="projects.html" class="dd-link">Sports & Footwear <span class="dd-arrow">→</span></a>
+            <a href="projects.html" class="dd-link">Hypermarket <span class="dd-arrow">→</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Request Consultation</a>
+      <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="nav-drawer">
+  <div class="drawer-inner">
+    <div class="drawer-section"><div class="drawer-section-title">Company</div><a href="company.html" class="drawer-link">Who We Are</a><a href="company.html#history" class="drawer-link">Our History</a><a href="company.html#locations" class="drawer-link">Locations</a><a href="company.html#certifications" class="drawer-link">Certifications</a></div>
+    <div class="drawer-section"><div class="drawer-section-title">Services</div><a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a><a href="services.html#led" class="drawer-link">Retail LED</a><a href="services.html#lighting" class="drawer-link">Retail Lighting</a><a href="services.html#fitout" class="drawer-link">Store Fitout</a></div>
+    <div class="drawer-section"><div class="drawer-section-title">Reference</div><a href="projects.html" class="drawer-link">All Projects</a></div>
+    <div class="drawer-section"><div class="drawer-section-title">More</div><a href="careers.html" class="drawer-link">Careers</a></div>
+    <a href="contact.html" class="drawer-cta">Request Consultation →</a>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-bg-num">04</div>
+    <div class="page-hero-eyebrow">Our Capabilities</div>
+    <h1>End-to-end retail <em>manufacturing</em></h1>
+    <p>Four integrated service lines. One production facility. Complete control from concept sketch to opening day.</p>
+  </div>
+
+  <div class="ticker"><div class="ticker-inner"><span class="ticker-item">Retail Fixtures <span class="ticker-sep">·</span></span><span class="ticker-item">LED Display Systems <span class="ticker-sep">·</span></span><span class="ticker-item">Architectural Lighting <span class="ticker-sep">·</span></span><span class="ticker-item">Full Store Fitout <span class="ticker-sep">·</span></span><span class="ticker-item">Made in UAE <span class="ticker-sep">·</span></span><span class="ticker-item">5-Year Defect Liability <span class="ticker-sep">·</span></span><span class="ticker-item">Retail Fixtures <span class="ticker-sep">·</span></span><span class="ticker-item">LED Display Systems <span class="ticker-sep">·</span></span><span class="ticker-item">Architectural Lighting <span class="ticker-sep">·</span></span><span class="ticker-item">Full Store Fitout <span class="ticker-sep">·</span></span><span class="ticker-item">Made in UAE <span class="ticker-sep">·</span></span><span class="ticker-item">5-Year Defect Liability <span class="ticker-sep">·</span></span></div></div>
+
+  <!-- 01 Fixtures -->
+  <section class="svc-section" id="fixtures">
+    <div class="svc-inner">
+      <div class="s-label rv">01 — Retail Fixtures</div>
+      <h2 class="h2 rv d1">Custom-engineered fixtures for every <em>retail environment</em></h2>
+      <div class="svc-layout">
+        <img class="svc-big-img rv" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0000_WhatsApp-Image-2023-12-04-at-4.07.06-PM-2.jpg" alt="Retail fixtures" onerror="this.style.background='#1C1C1C';this.style.display='block'">
+        <div class="feature-list">
+          <div class="fi rv"><div class="fi-n">01</div><div><div class="fi-title">Design & Development</div><p class="fi-desc">In-house retail architects translate brand briefs into engineered production drawings — concept, CAD, prototype, sign-off.</p></div></div>
+          <div class="fi rv d1"><div class="fi-n">02</div><div><div class="fi-title">Robotic Metal Fabrication</div><p class="fi-desc">Robotic cutting, welding, bending and forming. Tight tolerances, high repeatability, and scale for 100-store rollouts.</p></div></div>
+          <div class="fi rv d2"><div class="fi-n">03</div><div><div class="fi-title">Joinery & Carpentry</div><p class="fi-desc">Precision wood joinery in solid wood and engineered boards. Modular components built to last.</p></div></div>
+          <div class="fi rv"><div class="fi-n">04</div><div><div class="fi-title">Powder Coating & Finishing</div><p class="fi-desc">Brand-accurate colour, corrosion resistance, and lasting durability in high-traffic retail environments.</p></div></div>
+          <div class="fi rv d1"><div class="fi-n">05</div><div><div class="fi-title">On-Site Installation</div><p class="fi-desc">Our own teams deploy across UAE, KSA and internationally. Finished to spec on day one.</p></div></div>
+          <div class="fi rv d2"><div class="fi-n">06</div><div><div class="fi-title">5-Year Defect Liability</div><p class="fi-desc">Industry-leading post-handover guarantee. The UAE's largest retail fixture manufacturer backs every installation.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments -->
+  <section class="dept-section">
+    <div class="svc-inner">
+      <div class="s-label rv">Production Departments</div>
+      <h2 class="h2 rv d1">12 specialised <em>divisions</em></h2>
+      <div class="dept-grid">
+        <div class="dept-card rv"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0005_1.-Design-Development-Departmen.jpg" alt="Design" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">Design & Engineering</div><div class="dept-title">Design & Development</div><p class="dept-desc">Concept development, engineering detailing and prototyping for metal and joinery solutions.</p></div>
+        <div class="dept-card rv d1"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg" alt="Fabrication" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">Robotic Production</div><div class="dept-title">Metal Fabrication</div><p class="dept-desc">Manual and robotic fabrication — cutting, welding, bending and forming of all metal structures.</p></div>
+        <div class="dept-card rv d2"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg" alt="Lighting Integration" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">Integration</div><div class="dept-title">Lighting Integration</div><p class="dept-desc">Seamless integration of lighting into fixtures — wiring, LED components, control units.</p></div>
+        <div class="dept-card rv"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0004_3.Powder-Coating-Surface-Protection-Department.jpg" alt="Coating" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">Surface Treatment</div><div class="dept-title">Powder Coating</div><p class="dept-desc">High-performance coatings for durability, corrosion resistance and brand-accurate finish.</p></div>
+        <div class="dept-card rv d1"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0007_OC-OUT.jpg" alt="QC" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">Quality Assurance</div><div class="dept-title">QC Department</div><p class="dept-desc">Full inspection at every production stage. Every product meets the highest standards before dispatch.</p></div>
+        <div class="dept-card rv d2"><img class="dept-img" src="https://800retail.com/wp-content/uploads/2025/06/RTL-_0002_INSTALLATION-DEPT-OUT.jpg" alt="Installation" onerror="this.style.background='#252525';this.style.aspectRatio='16/9'"><div class="dept-sub">On-Site</div><div class="dept-title">Installation</div><p class="dept-desc">Packaging, logistics and complete on-site installation by dedicated teams.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 LED -->
+  <section class="svc-section" id="led">
+    <div class="svc-inner">
+      <div class="s-label rv">02 — Retail LED</div>
+      <h2 class="h2 rv d1">Next-generation <em>LED display</em> systems</h2>
+      <div class="svc-layout rev">
+        <img class="svc-big-img rv" src="https://800retail.com/wp-content/uploads/2025/11/Vero-Moda-Burjman-Dubai-001.jpg" alt="LED installation" onerror="this.style.background='#1C1C1C';this.style.display='block'">
+        <div class="feature-list">
+          <div class="fi rv"><div class="fi-n">01</div><div><div class="fi-title">Small-Pitch LED Screens</div><p class="fi-desc">High-resolution indoor screens with tight pixel pitch for vivid, close-up retail displays that command attention.</p></div></div>
+          <div class="fi rv d1"><div class="fi-n">02</div><div><div class="fi-title">Architectural Lightboxes</div><p class="fi-desc">Custom-fabricated LED lightboxes that integrate seamlessly into store architecture and brand environments.</p></div></div>
+          <div class="fi rv d2"><div class="fi-n">03</div><div><div class="fi-title">Digital Signage Systems</div><p class="fi-desc">Dynamic content displays for wayfinding, promotions and brand storytelling — with remote content management.</p></div></div>
+          <div class="fi rv"><div class="fi-n">04</div><div><div class="fi-title">Easy Maintenance</div><p class="fi-desc">Modular panel design for quick, cost-effective servicing. Minimal downtime, maximum retail uptime.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Lighting -->
+  <section class="svc-section" id="lighting">
+    <div class="svc-inner">
+      <div class="s-label rv">03 — Retail Lighting</div>
+      <h2 class="h2 rv d1">Precision lighting that <em>drives sales</em></h2>
+      <div class="svc-layout">
+        <img class="svc-big-img rv" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0002_Electrical-Integration-Assembly-Department.jpg" alt="Retail lighting" onerror="this.style.background='#1C1C1C';this.style.display='block'">
+        <div class="feature-list">
+          <div class="fi rv"><div class="fi-n">01</div><div><div class="fi-title">Lux-Level Calculation</div><p class="fi-desc">Precise lighting plans calculated per retail category — jewellery, footwear, apparel, hypermarket — each with optimal lux levels.</p></div></div>
+          <div class="fi rv d1"><div class="fi-n">02</div><div><div class="fi-title">Energy Efficiency</div><p class="fi-desc">LED-first approach reduces energy costs by up to 60% versus traditional retail lighting while improving light quality.</p></div></div>
+          <div class="fi rv d2"><div class="fi-n">03</div><div><div class="fi-title">Colour Rendering</div><p class="fi-desc">High CRI sources that render products accurately — product colours look right and customers trust what they see.</p></div></div>
+          <div class="fi rv"><div class="fi-n">04</div><div><div class="fi-title">Dwell Time Optimisation</div><p class="fi-desc">Lighting that guides customers through a store and increases time spent in key product zones.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Fitout -->
+  <section class="svc-section" id="fitout">
+    <div class="svc-inner">
+      <div class="s-label rv">04 — Retail Fitout</div>
+      <h2 class="h2 rv d1">Complete store environments, <em>one partner</em></h2>
+      <div class="svc-layout rev">
+        <img class="svc-big-img rv" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0009_Adidas-Fifa-World-Cup-2022-Kiosks-Project-QATAR-KSA-UA-13.jpg" alt="Store fitout" onerror="this.style.background='#1C1C1C';this.style.display='block'">
+        <div class="feature-list">
+          <div class="fi rv"><div class="fi-n">01</div><div><div class="fi-title">Concept & Design</div><p class="fi-desc">Interior architects develop full store concepts — plans, elevations, material boards, 3D visualisations — aligned to brand guidelines.</p></div></div>
+          <div class="fi rv d1"><div class="fi-n">02</div><div><div class="fi-title">Fabrication & Supply</div><p class="fi-desc">All fixtures, joinery, signage, lighting and LED elements manufactured in our own facility. No third-party supply risk.</p></div></div>
+          <div class="fi rv d2"><div class="fi-n">03</div><div><div class="fi-title">Logistics & Delivery</div><p class="fi-desc">Packed, palletised and tracked from our facility to site. We manage customs, freight and last-mile delivery.</p></div></div>
+          <div class="fi rv"><div class="fi-n">04</div><div><div class="fi-title">Installation & Handover</div><p class="fi-desc">Our installation teams complete every store to specification — snagging, QC sign-off and formal client handover.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="ind-section">
+    <div class="ind-inner">
+      <div class="s-label rv">Industries Served</div>
+      <h2 class="h2 rv d1">15 retail <em>verticals</em></h2>
+      <div class="ind-tags rv d2" data-filter-group>
+        <button class="ind-tag on" data-filter="all">All Industries</button>
+        <button class="ind-tag" data-filter>Luxury & Designer</button>
+        <button class="ind-tag" data-filter>Fashion & Apparel</button>
+        <button class="ind-tag" data-filter>Footwear & Accessories</button>
+        <button class="ind-tag" data-filter>Jewellery</button>
+        <button class="ind-tag" data-filter>Home & Living</button>
+        <button class="ind-tag" data-filter>Hypermarket</button>
+        <button class="ind-tag" data-filter>Health & Beauty</button>
+        <button class="ind-tag" data-filter>Convenience & Stationery</button>
+        <button class="ind-tag" data-filter>Electronics & Technology</button>
+        <button class="ind-tag" data-filter>Kids & Toys</button>
+        <button class="ind-tag" data-filter>Travel & Luggage</button>
+        <button class="ind-tag" data-filter>Pharmacy</button>
+        <button class="ind-tag" data-filter>Kitchenware</button>
+        <button class="ind-tag" data-filter>Optical Stores</button>
+        <button class="ind-tag" data-filter>Automotive Supplies</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages -->
+  <section class="adv-section">
+    <div class="adv-inner">
+      <div class="s-label rv">Why 800 Retail</div>
+      <h2 class="h2 rv d1">The integrated <em>advantage</em></h2>
+      <div class="adv-layout">
+        <div class="adv-list">
+          <div class="adv-item rv"><div class="adv-n">01</div><div><div class="adv-title">Vertically Integrated</div><p class="adv-desc">Design, fabrication, joinery, lighting and installation all in-house. Consistent quality, faster delivery, no vendor coordination.</p></div></div>
+          <div class="adv-item rv d1"><div class="adv-n">02</div><div><div class="adv-title">Rapid Prototyping</div><p class="adv-desc">Full-scale mockups for real-time material, ergonomic and aesthetic evaluation before mass production.</p></div></div>
+          <div class="adv-item rv d2"><div class="adv-n">03</div><div><div class="adv-title">80% Sustainable Materials</div><p class="adv-desc">Eco-responsible sourcing built into every project. Lower operational costs, reduced environmental footprint.</p></div></div>
+          <div class="adv-item rv"><div class="adv-n">04</div><div><div class="adv-title">5-Year Defect Liability</div><p class="adv-desc">Industry-leading post-handover guarantee — the UAE's largest retail fixture company backs every installation.</p></div></div>
+          <div class="adv-item rv d1"><div class="adv-n">05</div><div><div class="adv-title">Made in UAE Certified</div><p class="adv-desc">Certified bearer of the unified national mark — formal quality recognition, trusted in 25+ countries.</p></div></div>
+          <div style="margin-top:36px"><a href="contact.html" class="btn btn-red btn-arrow rv d2">Request Consultation</a></div>
+        </div>
+        <img class="adv-img rv d2" src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg" alt="Facility" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <div class="cta-band">
+    <h2>Ready to build your next <em>retail space?</em></h2>
+    <a href="contact.html" class="btn-dark">Start the Conversation →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="f-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></div>
+      <p class="body">The Middle East's largest retail fixture manufacturer.</p>
+      <div class="f-socials"><a href="https://www.facebook.com/800SIGN" target="_blank" class="f-soc">fb</a><a href="https://www.instagram.com/retailfixtures" target="_blank" class="f-soc">ig</a><a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="f-soc">in</a></div>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#fixtures">Retail Fixtures</a></li><li><a href="services.html#led">Retail LED</a></li><li><a href="services.html#lighting">Retail Lighting</a></li><li><a href="services.html#fitout">Store Fitout</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="company.html">About Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li><li><a href="tel:+971505774860">+971 50 577 4860</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group</p><p class="footer-mark">Certified <span>Made in UAE</span></p></div>
+</footer>
+<div class="contact-bar"><a href="https://wa.me/971505774860" target="_blank" title="WhatsApp">💬</a><a href="tel:+971505774860" title="Call us">📞</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>

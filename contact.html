@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — 800 Retail Solutions</title>
+<meta name="description" content="Get in touch with 800 Retail Solutions. Request a project consultation, submit a job application, or enquire about internships.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── Contact layout ── */
+.contact-wrap { display: grid; grid-template-columns: 420px 1fr; min-height: calc(100vh - 280px); }
+
+/* ── Left panel ── */
+.cl { background: var(--red); padding: 60px 48px; display: flex; flex-direction: column; justify-content: space-between; }
+.cl-heading { font-family: var(--serif); font-size: clamp(28px,3vw,44px); font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 14px; }
+.cl-heading em { font-style: italic; }
+.cl-sub { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.65); margin-bottom: 40px; }
+.contact-methods { display: flex; flex-direction: column; }
+.cm { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+.cm:first-child { border-top: 1px solid rgba(255,255,255,.15); }
+.cm-ico { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.3); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; color: var(--white); }
+.cm-lbl { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 3px; }
+.cm-val { font-size: 14px; color: var(--white); font-weight: 400; }
+.cm-val a { color: var(--white); }
+.cm-val a:hover { text-decoration: underline; }
+
+.office-label { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.5); margin: 36px 0 10px; }
+.office-tabs { display: flex; gap: 4px; margin-bottom: 14px; }
+.o-tab { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 8px 14px; border: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.6); background: none; cursor: pointer; transition: all .2s; }
+.o-tab.on, .o-tab:hover { background: rgba(255,255,255,.15); color: var(--white); border-color: rgba(255,255,255,.5); }
+.office-detail { display: none; font-size: 13px; line-height: 1.85; color: rgba(255,255,255,.7); }
+.office-detail strong { color: var(--white); font-weight: 400; }
+.office-detail.on { display: block; }
+
+.cl-socials { display: flex; gap: 8px; margin-top: 32px; }
+.cl-soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; font-family: var(--cond); font-size: 9.5px; font-weight: 600; color: rgba(255,255,255,.6); transition: all .2s; }
+.cl-soc:hover { background: rgba(255,255,255,.15); color: var(--white); border-color: rgba(255,255,255,.5); }
+
+/* ── Right panel ── */
+.cr { background: var(--dark); padding: 60px 52px; }
+.cr-title { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+.cr-sub { font-size: 14px; color: var(--gray); margin-bottom: 28px; }
+
+/* Form tabs */
+.form-tabs { display: flex; gap: 1px; margin-bottom: 32px; background: var(--dark3); }
+.ft { flex: 1; padding: 13px 10px; text-align: center; font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); background: var(--dark2); border: none; cursor: pointer; transition: background .2s, color .2s; }
+.ft.on { background: var(--red); color: var(--white); }
+.ft:hover:not(.on) { background: var(--dark3); color: var(--silver); }
+.f-panel { display: none; }
+.f-panel.on { display: block; }
+
+/* Form fields */
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fg { margin-bottom: 12px; }
+.fg label { display: block; font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.fg input, .fg textarea, .fg select {
+  width: 100%;
+  background: var(--dark2);
+  border: 1px solid var(--dark3);
+  color: var(--off-white);
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--red); }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--dark4); }
+.fg textarea { min-height: 110px; resize: vertical; }
+.fg select option { background: var(--dark2); color: var(--off-white); }
+.form-note { font-family: var(--cond); font-size: 9px; letter-spacing: .12em; color: var(--dark4); margin: 4px 0 12px; line-height: 1.6; }
+.f-submit { width: 100%; background: var(--red); color: var(--white); border: none; padding: 16px; font-family: var(--cond); font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s; margin-top: 4px; }
+.f-submit:hover { background: var(--red-dark); transform: translateY(-2px); }
+.f-submit:disabled { background: var(--dark3); color: var(--red); transform: none; cursor: default; }
+
+/* ── Office cards ── */
+.office-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--dark3); }
+.oc { background: var(--dark2); padding: 36px 28px; position: relative; overflow: hidden; }
+.oc::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height .4s var(--ease); }
+.oc:hover::before { height: 100%; }
+.oc-region { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.oc-region::before { content: ''; width: 16px; height: 1px; background: var(--red); }
+.oc-city { font-family: var(--serif); font-size: 30px; font-weight: 400; color: var(--white); margin-bottom: 4px; }
+.oc-since { font-family: var(--cond); font-size: 9px; letter-spacing: .14em; color: var(--gray); margin-bottom: 18px; }
+.oc-fact { font-size: 13px; line-height: 1.85; color: var(--gray-lt); margin-bottom: 3px; }
+.oc-fact strong { color: var(--silver); font-weight: 400; }
+.oc-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-top: 16px; transition: gap .2s; }
+.oc:hover .oc-link { gap: 14px; }
+
+/* ── FAQ ── */
+.faq-wrap { max-width: 780px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid var(--dark3); }
+.faq-q { width: 100%; background: none; border: none; padding: 20px 0; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; }
+.faq-q-txt { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--white); transition: color .2s; }
+.faq-item:hover .faq-q-txt { color: var(--red); }
+.faq-ico { font-family: var(--cond); font-size: 20px; font-weight: 300; color: var(--red); flex-shrink: 0; transition: transform .3s; }
+.faq-item.open .faq-ico { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 0 18px; font-size: 14px; line-height: 1.85; color: var(--gray); }
+.faq-item.open .faq-a { display: block; }
+
+/* padded sections */
+.padded { max-width: var(--max); margin: 0 auto; padding: 72px var(--pad); }
+.padded-dark { background: var(--dark); }
+
+@media(max-width:1100px){
+  .contact-wrap { grid-template-columns: 1fr; }
+  .cl { padding: 52px var(--pad); }
+  .cr { padding: 52px var(--pad); }
+  .office-cards { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:768px){
+  .office-cards { grid-template-columns: 1fr; }
+  .frow { grid-template-columns: 1fr; }
+  .form-tabs { flex-direction: column; }
+  .ft { text-align: left; }
+}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></a><ul class="nav-menu"><li class="nav-item"><span data-toggle>Company <span class="nav-chevron"></span></span><div class="nav-dropdown wide"><div class="dd-col"><div class="dd-heading">About</div><a href="company.html" class="dd-link">Who We Are <span class="dd-arrow">→</span></a><a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a><a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a><a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a><a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a></div><div class="dd-col"><div class="dd-heading">Services</div><a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a><a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a><a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a><a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="careers.html" class="dd-link">Careers <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><span data-toggle>Reference <span class="nav-chevron"></span></span><div class="nav-dropdown"><div class="dd-col"><div class="dd-heading">Portfolio</div><a href="projects.html" class="dd-link">All Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">LED Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><a href="contact.html" class="active">Contact</a></li></ul><div class="nav-right"><a href="contact.html" class="nav-cta" style="background:var(--red);color:var(--white)">Request Consultation</a><button class="nav-burger" id="burger"><span></span><span></span><span></span></button></div></div></nav>
+<div id="nav-drawer"><div class="drawer-inner"><div class="drawer-section"><div class="drawer-section-title">Company</div><a href="company.html" class="drawer-link">Who We Are</a><a href="company.html#history" class="drawer-link">Our History</a><a href="company.html#locations" class="drawer-link">Locations</a></div><div class="drawer-section"><div class="drawer-section-title">Services</div><a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a><a href="services.html#led" class="drawer-link">Retail LED</a><a href="services.html#lighting" class="drawer-link">Retail Lighting</a><a href="services.html#fitout" class="drawer-link">Store Fitout</a></div><div class="drawer-section"><div class="drawer-section-title">Reference</div><a href="projects.html" class="drawer-link">All Projects</a></div><div class="drawer-section"><div class="drawer-section-title">More</div><a href="careers.html" class="drawer-link">Careers</a></div><a href="contact.html" class="drawer-cta">Request Consultation →</a></div></div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-bg-num">↗</div>
+    <div class="page-hero-eyebrow">Get in Touch</div>
+    <h1>Let's build<br>something <em>great</em>.</h1>
+    <p>Whether fitting out a single flagship or scaling across 100 locations — our team responds within one business day.</p>
+  </div>
+
+  <!-- Contact form + details -->
+  <div class="contact-wrap">
+    <!-- Left -->
+    <div class="cl">
+      <div>
+        <h2 class="cl-heading">Four ways to <em>reach us</em></h2>
+        <p class="cl-sub">For urgent enquiries, call or WhatsApp directly. Our team responds within one business day.</p>
+        <div class="contact-methods">
+          <div class="cm"><div class="cm-ico">✆</div><div><div class="cm-lbl">Phone</div><div class="cm-val"><a href="tel:+971505774860">+971 50 577 4860</a></div></div></div>
+          <div class="cm"><div class="cm-ico">✉</div><div><div class="cm-lbl">Email</div><div class="cm-val"><a href="mailto:ask@800retail.com">ask@800retail.com</a></div></div></div>
+          <div class="cm"><div class="cm-ico">💬</div><div><div class="cm-lbl">WhatsApp</div><div class="cm-val"><a href="https://wa.me/971505774860" target="_blank">+971 50 577 4860</a></div></div></div>
+          <div class="cm"><div class="cm-ico">微</div><div><div class="cm-lbl">WeChat ID</div><div class="cm-val">800RetailSolutions</div></div></div>
+        </div>
+        <div class="office-label">Select Office</div>
+        <div class="office-tabs">
+          <button class="o-tab on" onclick="showOffice('uae',this)">UAE</button>
+          <button class="o-tab" onclick="showOffice('ksa',this)">KSA</button>
+          <button class="o-tab" onclick="showOffice('cn',this)">China</button>
+        </div>
+        <div class="office-detail on" id="od-uae"><strong>Al Ameen Group HQ</strong><br>Dubai, United Arab Emirates<br>300,000+ sq ft Manufacturing Facility<br>Experience Centre available for client visits</div>
+        <div class="office-detail" id="od-ksa"><strong>Al Ameen Industries</strong><br>Riyadh, Kingdom of Saudi Arabia<br>40,000+ sq ft Facility<br>Experience Centres in Riyadh &amp; Jeddah</div>
+        <div class="office-detail" id="od-cn"><strong>Al Ameen Global</strong><br>Foshan, Guangdong Province, China<br>6,000+ sq ft Procurement Hub<br>Material selection &amp; vendor collaboration</div>
+      </div>
+      <div>
+        <div class="cl-socials">
+          <a href="https://www.facebook.com/800SIGN" target="_blank" class="cl-soc">fb</a>
+          <a href="https://www.instagram.com/retailfixtures" target="_blank" class="cl-soc">ig</a>
+          <a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="cl-soc">in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Forms -->
+    <div class="cr" data-tabs>
+      <div class="cr-title">Send an Enquiry</div>
+      <p class="cr-sub">Select the type of enquiry and complete the form. We respond within one business day.</p>
+      <div class="form-tabs">
+        <button class="ft on" data-tab-btn onclick="switchTab('consultation',this)">Project Consultation</button>
+        <button class="ft" data-tab-btn onclick="switchTab('careers',this)">CV / Application</button>
+        <button class="ft" data-tab-btn onclick="switchTab('internship',this)">Internship</button>
+      </div>
+
+      <!-- Consultation -->
+      <div class="f-panel on" data-tab-panel="consultation">
+        <div class="frow">
+          <div class="fg"><label>First Name *</label><input type="text" placeholder="John" required></div>
+          <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="fg"><label>Company / Brand *</label><input type="text" placeholder="Your company or brand" required></div>
+        <div class="frow">
+          <div class="fg"><label>Email *</label><input type="email" placeholder="john@company.com" required></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+971 ..."></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Country *</label><select required><option value="" disabled selected>Select country</option><option>United Arab Emirates</option><option>Saudi Arabia</option><option>Qatar</option><option>Kuwait</option><option>Bahrain</option><option>Oman</option><option>Egypt</option><option>Jordan</option><option>Other</option></select></div>
+          <div class="fg"><label>Service Required *</label><select required><option value="" disabled selected>Select a service</option><option>Retail Fixtures</option><option>Retail LED</option><option>Retail Lighting</option><option>Full Store Fitout</option><option>Multiple Services</option><option>General Enquiry</option></select></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label>Number of Locations</label><select><option value="" disabled selected>Select range</option><option>1 location</option><option>2–5 locations</option><option>6–20 locations</option><option>21–100 locations</option><option>100+ locations</option></select></div>
+          <div class="fg"><label>Timeline</label><select><option value="" disabled selected>When do you need delivery?</option><option>Within 4 weeks</option><option>1–3 months</option><option>3–6 months</option><option>6–12 months</option><option>Planning stage</option></select></div>
+        </div>
+        <div class="fg"><label>Project Brief *</label><textarea placeholder="Tell us about your project — brand guidelines, store concept, materials, scale, special requirements..." required></textarea></div>
+        <p class="form-note">* Required fields. Your information is used solely to respond to your enquiry.</p>
+        <button class="f-submit" onclick="handleSubmit(this)">Send Project Enquiry →</button>
+      </div>
+
+      <!-- CV / Application -->
+      <div class="f-panel" data-tab-panel="careers">
+        <div class="frow">
+          <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+          <div class="fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+        </div>
+        <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+971 ..." required></div>
+        <div class="fg"><label>Role Applied For *</label><select required><option value="" disabled selected>Select a role</option><option>Senior Retail Interior Designer</option><option>Project Manager — Retail Fitout</option><option>CNC Machine Operator</option><option>Business Development Manager</option><option>LED Systems Engineer</option><option>Retail Lighting Consultant</option><option>Supply Chain Coordinator</option><option>Other / Speculative Application</option></select></div>
+        <div class="frow">
+          <div class="fg"><label>Years of Experience</label><select><option value="" disabled selected>Select range</option><option>0–2 years</option><option>3–5 years</option><option>6–10 years</option><option>10+ years</option></select></div>
+          <div class="fg"><label>Current Location</label><input type="text" placeholder="City, Country"></div>
+        </div>
+        <div class="fg"><label>LinkedIn / Portfolio URL</label><input type="url" placeholder="https://..."></div>
+        <div class="fg"><label>Cover Note *</label><textarea placeholder="Tell us why you want to join 800 Retail Solutions and what you bring..." required></textarea></div>
+        <p class="form-note">* Required fields. Please include a link to your CV or portfolio above.</p>
+        <button class="f-submit" onclick="handleSubmit(this)">Submit Application →</button>
+      </div>
+
+      <!-- Internship -->
+      <div class="f-panel" data-tab-panel="internship">
+        <div class="frow">
+          <div class="fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+          <div class="fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+        </div>
+        <div class="fg"><label>University / Institution *</label><input type="text" placeholder="Your university or college" required></div>
+        <div class="frow">
+          <div class="fg"><label>Degree / Programme</label><input type="text" placeholder="e.g. Interior Design, Engineering"></div>
+          <div class="fg"><label>Year of Study</label><select><option value="" disabled selected>Select year</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option><option>Masters / Postgraduate</option><option>Recent Graduate</option></select></div>
+        </div>
+        <div class="fg"><label>Area of Interest *</label><select required><option value="" disabled selected>Select area</option><option>Design Studio</option><option>Engineering & Production</option><option>Business Development</option><option>Marketing & Digital</option><option>Operations & Supply Chain</option></select></div>
+        <div class="frow">
+          <div class="fg"><label>Available From</label><input type="text" placeholder="e.g. June 2025"></div>
+          <div class="fg"><label>Duration</label><input type="text" placeholder="e.g. 3 months"></div>
+        </div>
+        <div class="fg"><label>Why 800 Retail? *</label><textarea placeholder="Tell us what draws you to 800 Retail Solutions and what you hope to learn..." required></textarea></div>
+        <p class="form-note">* Required. Internships are based at our Dubai facility. Accommodation is not provided.</p>
+        <button class="f-submit" onclick="handleSubmit(this)">Submit Internship Application →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Office cards -->
+  <div class="padded">
+    <div class="s-label rv">Our Offices</div>
+    <h2 class="h2 rv d1" style="margin-bottom:40px">Three regions. <em>One team.</em></h2>
+    <div class="office-cards">
+      <div class="oc rv">
+        <div class="oc-region">UAE · Headquarters</div>
+        <div class="oc-city">Dubai</div>
+        <div class="oc-since">Al Ameen Group · Since 1997</div>
+        <p class="oc-fact"><strong>Facility:</strong> 300,000+ sq ft</p>
+        <p class="oc-fact"><strong>Team:</strong> 450+ employees</p>
+        <p class="oc-fact">Experience Centre for client visits</p>
+        <a href="https://maps.google.com/?q=Dubai,UAE" target="_blank" class="oc-link">View on Map →</a>
+      </div>
+      <div class="oc rv d1">
+        <div class="oc-region">KSA · Operations</div>
+        <div class="oc-city">Riyadh</div>
+        <div class="oc-since">Al Ameen Industries · Since 2022</div>
+        <p class="oc-fact"><strong>Facility:</strong> 40,000+ sq ft</p>
+        <p class="oc-fact"><strong>Team:</strong> 50+ employees</p>
+        <p class="oc-fact">Experience Centres in Riyadh &amp; Jeddah</p>
+        <a href="https://maps.google.com/?q=Riyadh,Saudi+Arabia" target="_blank" class="oc-link">View on Map →</a>
+      </div>
+      <div class="oc rv d2">
+        <div class="oc-region">China · Sourcing</div>
+        <div class="oc-city">Foshan</div>
+        <div class="oc-since">Al Ameen Global · Since 2023</div>
+        <p class="oc-fact"><strong>Procurement Hub:</strong> 6,000+ sq ft</p>
+        <p class="oc-fact"><strong>Production:</strong> 40,000+ sq ft (planned)</p>
+        <p class="oc-fact">Material selection &amp; vendor management</p>
+        <a href="https://maps.google.com/?q=Foshan,China" target="_blank" class="oc-link">View on Map →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="padded padded-dark">
+    <div class="s-label rv">Common Questions</div>
+    <h2 class="h2 rv d1" style="margin-bottom:0">Frequently <em>asked</em></h2>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">What is your minimum order quantity?</span><span class="faq-ico">+</span></button><div class="faq-a">We work with clients of all scales — from single flagship stores to 100+ location rollouts. There is no strict minimum. Contact us for a tailored proposal based on your project scope.</div></div>
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">How long does a typical project take?</span><span class="faq-ico">+</span></button><div class="faq-a">A standard fixture package for a single store typically takes 6–10 weeks from design approval to installation. Full store fitout ranges from 10–20 weeks. We offer rapid prototyping to compress approval timelines.</div></div>
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Do you work outside the UAE and KSA?</span><span class="faq-ico">+</span></button><div class="faq-a">Yes. We have delivered projects across 25+ countries including Qatar, Kuwait, Bahrain, Oman, Egypt, Jordan, and markets in Europe and Asia. Our logistics team manages international freight and customs.</div></div>
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">What does the 5-year defect liability cover?</span><span class="faq-ico">+</span></button><div class="faq-a">Our 5-year defect liability covers manufacturing defects in all fixtures and fitout elements we supply and install — materials, finish, and structural integrity under normal retail use conditions.</div></div>
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Can I visit your facility before placing an order?</span><span class="faq-ico">+</span></button><div class="faq-a">Absolutely. We have experience centres in Dubai, Riyadh and Jeddah. Factory visits to our 300,000+ sq ft Dubai production facility can also be arranged for qualified clients.</div></div>
+      <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Do you offer sustainable material options?</span><span class="faq-ico">+</span></button><div class="faq-a">Yes. 80% of our materials are sustainably sourced. We offer FSC-certified timber, recycled metal options, low-VOC finishes and energy-efficient LED integration as standard on any project.</div></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-main"><div class="footer-brand"><div class="f-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></div><p class="body">The Middle East's largest retail fixture manufacturer. Get in touch to start your project today.</p><div class="f-socials"><a href="https://www.facebook.com/800SIGN" target="_blank" class="f-soc">fb</a><a href="https://www.instagram.com/retailfixtures" target="_blank" class="f-soc">ig</a><a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="f-soc">in</a></div></div><div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li><li><a href="tel:+971505774860">+971 50 577 4860</a></li><li><a href="https://wa.me/971505774860" target="_blank">WhatsApp</a></li><li>WeChat: 800RetailSolutions</li></ul></div><div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#fixtures">Retail Fixtures</a></li><li><a href="services.html#led">Retail LED</a></li><li><a href="services.html#lighting">Retail Lighting</a></li><li><a href="services.html#fitout">Store Fitout</a></li></ul></div><div class="footer-col"><h5>Company</h5><ul><li><a href="company.html">About Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="careers.html">Careers</a></li><li><a href="company.html#locations">Locations</a></li></ul></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group · All rights reserved</p><p class="footer-mark">Certified <span>Made in UAE</span> · Serving 25+ Countries</p></div></footer>
+<div class="contact-bar"><a href="https://wa.me/971505774860" target="_blank" title="WhatsApp">💬</a><a href="tel:+971505774860" title="Call">📞</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>

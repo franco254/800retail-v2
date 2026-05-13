@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>800 Retail Solutions — Shaping Tomorrow's Storefronts</title>
+<meta name="description" content="The Middle East's largest retail fixture manufacturer. Custom fixtures, LED systems, lighting and full store fitout across UAE, KSA and 25+ countries.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 52% 48%;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 60px) var(--pad) 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--cond);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s var(--ease) 0.3s forwards;
+}
+.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6.5vw, 96px);
+  font-weight: 400;
+  line-height: 0.97;
+  color: var(--white);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.5s forwards;
+}
+.hero-title em { font-style: italic; color: var(--red); display: block; }
+.hero-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-lt);
+  max-width: 420px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.7s forwards;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.9s forwards;
+}
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--black) 0%, rgba(12,12,12,0.4) 50%, transparent 100%);
+  z-index: 1;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  animation: heroReveal 1.2s var(--ease) 0.2s forwards;
+  filter: brightness(0.65);
+}
+.hero-tag {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2;
+  background: var(--red);
+  padding: 20px 26px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 1.2s forwards;
+}
+.hero-tag-num {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-tag-lbl {
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: var(--pad);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 1.4s forwards;
+}
+.hero-scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--red);
+  animation: lineSlide 2s var(--ease) 1.6s infinite alternate;
+}
+.hero-scroll-txt {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ── About ── */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 100px var(--pad);
+  gap: 80px;
+  align-items: center;
+}
+.about-vis { position: relative; }
+.about-main-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+.about-accent-img {
+  position: absolute;
+  bottom: -32px;
+  right: -32px;
+  width: 48%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 4px solid var(--black);
+  filter: brightness(0.85);
+}
+.about-badge {
+  position: absolute;
+  top: 32px;
+  left: -20px;
+  background: var(--red);
+  padding: 18px 22px;
+  text-align: center;
+}
+.badge-n {
+  font-family: var(--serif);
+  font-size: 46px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  display: block;
+}
+.badge-l {
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-top: 4px;
+  display: block;
+}
+.about-txt .h2 { margin-bottom: 22px; }
+.about-txt .body { margin-bottom: 32px; max-width: 460px; }
+.about-kpis {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  border-top: 1px solid var(--dark3);
+  border-bottom: 1px solid var(--dark3);
+  margin-bottom: 36px;
+}
+.kpi {
+  padding: 20px 0;
+  border-right: 1px solid var(--dark3);
+  text-align: center;
+}
+.kpi:last-child { border-right: none; }
+.kpi-n {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+.kpi-n sup { font-size: 16px; color: var(--red); }
+.kpi-l {
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 5px;
+}
+
+/* ── Services ── */
+.services-section { background: var(--dark); padding: 100px 0; }
+.services-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.services-hd {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.services-hd .body { padding-top: 40px; max-width: 420px; }
+.svc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--dark3); }
+.svc-card {
+  background: var(--dark2);
+  padding: 44px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.svc-card:hover { background: var(--dark3); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--dark4);
+  margin-bottom: 32px;
+}
+.svc-icon {
+  width: 44px; height: 44px;
+  border: 1px solid var(--dark4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.svc-card:hover .svc-icon { border-color: var(--red); background: rgba(196,30,30,0.1); }
+.svc-title {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.svc-desc { font-size: 13.5px; line-height: 1.8; color: var(--gray); margin-bottom: 28px; }
+.svc-link {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+}
+.svc-card:hover .svc-link { gap: 14px; }
+
+/* ── Projects ── */
+.projects-section { padding: 100px 0; }
+.projects-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.projects-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  grid-template-rows: 320px 280px;
+  gap: 2px;
+}
+.proj-cell { position: relative; overflow: hidden; }
+.proj-cell:first-child { grid-row: span 2; }
+.proj-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease), filter 0.4s;
+  filter: brightness(0.68);
+}
+.proj-cell:hover .proj-img { transform: scale(1.05); filter: brightness(0.82); }
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,12,12,0.92) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.proj-cell:hover .proj-overlay { opacity: 1; }
+.proj-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s, transform 0.35s;
+}
+.proj-cell:hover .proj-info { opacity: 1; transform: none; }
+.proj-client {
+  font-family: var(--cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.proj-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+}
+.proj-loc {
+  font-family: var(--cond);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--silver);
+  margin-top: 3px;
+}
+.proj-cta {
+  border-top: 1px solid var(--dark3);
+  margin-top: 2px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* ── Clients ── */
+.clients-section { background: var(--dark2); padding: 80px 0; }
+.clients-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.clients-hd { text-align: center; margin-bottom: 48px; }
+.clients-hd .s-label { justify-content: center; }
+.clients-hd .s-label::before { display: none; }
+.clients-hd .h2 { margin-top: 10px; }
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 1px;
+  background: var(--dark3);
+}
+.client-cell {
+  background: var(--dark2);
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.25s;
+}
+.client-cell:hover { background: var(--dark3); }
+.client-cell img {
+  max-height: 32px;
+  max-width: 110px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.6);
+  transition: filter 0.3s;
+}
+.client-cell:hover img { filter: grayscale(0%) brightness(1); }
+.client-name {
+  font-family: var(--cond);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dark4);
+  text-align: center;
+}
+
+/* ── CEO ── */
+.ceo-section {
+  background: var(--red);
+  padding: 80px var(--pad);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 72px;
+  align-items: center;
+  max-width: 100%;
+}
+.ceo-img {
+  width: 280px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(20%);
+}
+.ceo-mark {
+  font-family: var(--serif);
+  font-size: 100px;
+  color: rgba(255,255,255,0.15);
+  line-height: 0.8;
+  margin-bottom: 8px;
+}
+.ceo-quote {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 28px;
+}
+.ceo-name {
+  font-family: var(--cond);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.ceo-title {
+  font-family: var(--cond);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { min-height: 100vh; }
+  .about-section { grid-template-columns: 1fr; gap: 48px; padding: 72px var(--pad); }
+  .about-accent-img { display: none; }
+  .about-badge { left: 0; }
+  .services-hd { grid-template-columns: 1fr; gap: 16px; }
+  .svc-grid { grid-template-columns: repeat(2,1fr); }
+  .proj-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .proj-cell:first-child { grid-row: auto; }
+  .client-grid { grid-template-columns: repeat(3,1fr); }
+  .ceo-section { grid-template-columns: 1fr; gap: 36px; }
+  .ceo-img { width: 180px; }
+}
+@media (max-width: 768px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .client-grid { grid-template-columns: repeat(2,1fr); }
+  .about-kpis { grid-template-columns: repeat(3,1fr); }
+  .projects-hd { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .ceo-section { padding: 60px var(--pad); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38">
+      <span class="logo-fallback"><span class="r">800</span> RETAIL</span>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <span data-toggle>Company <span class="nav-chevron"></span></span>
+        <div class="nav-dropdown wide">
+          <div class="dd-col">
+            <div class="dd-heading">About</div>
+            <a href="company.html" class="dd-link">Who We Are <span class="dd-arrow">→</span></a>
+            <a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a>
+            <a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a>
+            <a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a>
+            <a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a>
+          </div>
+          <div class="dd-col">
+            <div class="dd-heading">Services</div>
+            <a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a>
+            <a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a>
+            <a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a>
+            <a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <a href="careers.html" class="dd-link">Careers <span class="dd-arrow">→</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <span data-toggle>Reference <span class="nav-chevron"></span></span>
+        <div class="nav-dropdown">
+          <div class="dd-col">
+            <div class="dd-heading">Portfolio</div>
+            <a href="projects.html" class="dd-link">All Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html?cat=fixtures" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html?cat=led" class="dd-link">LED Projects <span class="dd-arrow">→</span></a>
+            <a href="projects.html?cat=fitout" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a>
+            <div class="dd-divider"></div>
+            <div class="dd-heading">By Industry</div>
+            <a href="projects.html?ind=fashion" class="dd-link">Fashion & Apparel <span class="dd-arrow">→</span></a>
+            <a href="projects.html?ind=sports" class="dd-link">Sports & Footwear <span class="dd-arrow">→</span></a>
+            <a href="projects.html?ind=hypermarket" class="dd-link">Hypermarket <span class="dd-arrow">→</span></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="contact.html">Contact</a>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Request Consultation</a>
+      <button class="nav-burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div id="nav-drawer">
+  <div class="drawer-inner">
+    <div class="drawer-section">
+      <div class="drawer-section-title">Company</div>
+      <a href="company.html" class="drawer-link">Who We Are</a>
+      <a href="company.html#history" class="drawer-link">Our History</a>
+      <a href="company.html#ceo" class="drawer-link">CEO Message</a>
+      <a href="company.html#locations" class="drawer-link">Locations</a>
+      <a href="company.html#certifications" class="drawer-link">Certifications</a>
+      <a href="company.html#own-brand" class="drawer-link">Own Brand</a>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Services</div>
+      <a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a>
+      <a href="services.html#led" class="drawer-link">Retail LED</a>
+      <a href="services.html#lighting" class="drawer-link">Retail Lighting</a>
+      <a href="services.html#fitout" class="drawer-link">Store Fitout</a>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Reference</div>
+      <a href="projects.html" class="drawer-link">All Projects</a>
+      <a href="projects.html?cat=fixtures" class="drawer-link">Fixture Projects</a>
+      <a href="projects.html?cat=led" class="drawer-link">LED & Lighting</a>
+      <a href="projects.html?cat=fitout" class="drawer-link">Fitout Projects</a>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">More</div>
+      <a href="careers.html" class="drawer-link">Careers</a>
+    </div>
+    <a href="contact.html" class="drawer-cta">Request Consultation →</a>
+  </div>
+</div>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Al Ameen Group · UAE · Since 1997</div>
+    <h1 class="hero-title">
+      Shaping<br>Tomorrow's<br><em>Storefronts</em>
+    </h1>
+    <p class="hero-body">The Middle East's largest retail fixture manufacturer. From concept to installation — 300,000 sq ft, entirely in-house, across 25+ countries.</p>
+    <div class="hero-actions">
+      <a href="projects.html" class="btn btn-red btn-arrow">View Our Work</a>
+      <a href="contact.html" class="btn btn-outline">Request Consultation</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img"
+      src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0008_ADIDAS-PULSE-KALBA-IMAGES-0007.jpg"
+      alt="Adidas retail fixture installation"
+      onerror="this.style.background='#1C1C1C'">
+    <div class="hero-tag">
+      <div class="hero-tag-num">9,500<sup style="font-size:20px;color:rgba(255,255,255,.7)">+</sup></div>
+      <div class="hero-tag-lbl">Store Counters<br>Delivered</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span class="hero-scroll-txt">Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ── Ticker ── -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Retail Fixtures <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">LED Display Systems <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Architectural Lighting <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Full Store Fitout <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Made in UAE <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">300,000 sq ft Facility <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">5-Year Defect Liability <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Robotic Fabrication <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Retail Fixtures <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">LED Display Systems <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Architectural Lighting <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Full Store Fitout <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Made in UAE <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">300,000 sq ft Facility <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">5-Year Defect Liability <span class="ticker-sep">·</span></span>
+    <span class="ticker-item">Robotic Fabrication <span class="ticker-sep">·</span></span>
+  </div>
+</div>
+
+<!-- ── Stats ── -->
+<div class="stats-strip">
+  <div class="stat-item rv">
+    <div class="stat-num">300<sup>k+</sup></div>
+    <div class="stat-lbl">Sq ft Production Facility</div>
+  </div>
+  <div class="stat-item rv d1">
+    <div class="stat-num">9,500<sup>+</sup></div>
+    <div class="stat-lbl">Store Counters Completed</div>
+  </div>
+  <div class="stat-item rv d2">
+    <div class="stat-num">450<sup>+</sup></div>
+    <div class="stat-lbl">Skilled Workforce</div>
+  </div>
+  <div class="stat-item rv d3">
+    <div class="stat-num">25<sup>+</sup></div>
+    <div class="stat-lbl">Countries Served</div>
+  </div>
+</div>
+
+<!-- ── About ── -->
+<section>
+  <div class="about-section">
+    <div class="about-vis rv">
+      <img class="about-main-img"
+        src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0009_Adidas-Fifa-World-Cup-2022-Kiosks-Project-QATAR-KSA-UA-13.jpg"
+        alt="Manufacturing" onerror="this.style.background='#1C1C1C';this.style.aspectRatio='4/5'">
+      <img class="about-accent-img"
+        src="https://800retail.com/wp-content/uploads/2025/06/Departmental-Structure_0001_Metal-Fabrication-Department.jpg"
+        alt="Fabrication" onerror="this.style.display='none'">
+      <div class="about-badge">
+        <span class="badge-n">27</span>
+        <span class="badge-l">Years of<br>Excellence</span>
+      </div>
+    </div>
+    <div class="about-txt">
+      <div class="s-label rv">Al Ameen Group</div>
+      <h2 class="h2 rv d1">Built on craft.<br>Driven by <em>precision</em>.</h2>
+      <p class="body rv d2">Al Ameen Group is the largest fixture manufacturing company in the Middle East. Founded in 1997, we deliver end-to-end retail environments — from concept design through robotic fabrication to final on-site installation. Every capability in-house. One partner. Zero coordination gaps.</p>
+      <div class="about-kpis rv d3">
+        <div class="kpi"><div class="kpi-n">300<sup>k+</sup></div><div class="kpi-l">Sq ft</div></div>
+        <div class="kpi"><div class="kpi-n">450<sup>+</sup></div><div class="kpi-l">Employees</div></div>
+        <div class="kpi"><div class="kpi-n">25<sup>+</sup></div><div class="kpi-l">Countries</div></div>
+      </div>
+      <a href="company.html" class="btn btn-red btn-arrow rv d4">Our Full Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section class="services-section">
+  <div class="services-inner">
+    <div class="services-hd">
+      <div>
+        <div class="s-label rv">Our Capabilities</div>
+        <h2 class="h2 rv d1">Four pillars of<br><em>retail excellence</em></h2>
+      </div>
+      <p class="body rv d2">From robotic metal fabrication to pixel-perfect LED walls — every capability under one roof. No vendor juggling. No handover gaps. Just seamless execution.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rv">
+        <div class="svc-num">01</div>
+        <div class="svc-icon">⬡</div>
+        <div class="svc-title">Retail Fixtures</div>
+        <p class="svc-desc">Custom-engineered shelving, counters and displays. Robotic fabrication, precision joinery, powder coating and on-site installation.</p>
+        <a href="services.html#fixtures" class="svc-link">Learn More →</a>
+      </div>
+      <div class="svc-card rv d1">
+        <div class="svc-num">02</div>
+        <div class="svc-icon">▣</div>
+        <div class="svc-title">Retail LED</div>
+        <p class="svc-desc">Small-pitch screens and architectural display systems. Crisp, cost-effective, quick to install and easy to maintain at any scale.</p>
+        <a href="services.html#led" class="svc-link">Learn More →</a>
+      </div>
+      <div class="svc-card rv d2">
+        <div class="svc-num">03</div>
+        <div class="svc-icon">◈</div>
+        <div class="svc-title">Retail Lighting</div>
+        <p class="svc-desc">Precision lux-level calculations that increase dwell time and drive sales. Energy-efficient, high colour-rendering solutions.</p>
+        <a href="services.html#lighting" class="svc-link">Learn More →</a>
+      </div>
+      <div class="svc-card rv d3">
+        <div class="svc-num">04</div>
+        <div class="svc-icon">◻</div>
+        <div class="svc-title">Retail Fitout</div>
+        <p class="svc-desc">Complete store environments — single partner from first sketch to opening day across UAE, KSA and internationally.</p>
+        <a href="services.html#fitout" class="svc-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Projects ── -->
+<section class="projects-section">
+  <div class="projects-inner">
+    <div class="projects-hd">
+      <div>
+        <div class="s-label rv">Selected Work</div>
+        <h2 class="h2 rv d1">Built for <em>iconic brands</em></h2>
+      </div>
+      <a href="projects.html" class="btn btn-outline-red rv d2">All Projects →</a>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-cell">
+        <img class="proj-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0000_WhatsApp-Image-2023-12-04-at-4.07.06-PM-2.jpg" alt="Adidas Ibn Battuta" onerror="this.style.background='#1C1C1C'">
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <div class="proj-client">Adidas</div>
+          <div class="proj-name">Ibn Battuta Mall</div>
+          <div class="proj-loc">Dubai, UAE</div>
+        </div>
+      </div>
+      <div class="proj-cell">
+        <img class="proj-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0004_WhatsApp-Image-2023-09-18-at-12.07.04-AM.jpg" alt="BOSS Doha" onerror="this.style.background='#252525'">
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <div class="proj-client">BOSS</div>
+          <div class="proj-name">Doha Festival City</div>
+          <div class="proj-loc">Qatar</div>
+        </div>
+      </div>
+      <div class="proj-cell">
+        <img class="proj-img" src="https://800retail.com/wp-content/uploads/2025/06/FIXT_0010_WhatsApp-Image-2025-07-09-at-5.46.25-PM.jpg" alt="Nesto" onerror="this.style.background='#1C1C1C'">
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <div class="proj-client">Nesto</div>
+          <div class="proj-name">Mia Mall</div>
+          <div class="proj-loc">UAE</div>
+        </div>
+      </div>
+      <div class="proj-cell">
+        <img class="proj-img" src="https://800retail.com/wp-content/uploads/2025/11/Vero-Moda-Burjman-Dubai-001.jpg" alt="Vero Moda" onerror="this.style.background='#252525'">
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <div class="proj-client">Vero Moda</div>
+          <div class="proj-name">BurJuman Centre</div>
+          <div class="proj-loc">Dubai, UAE · LED</div>
+        </div>
+      </div>
+      <div class="proj-cell">
+        <img class="proj-img" src="https://800retail.com/wp-content/uploads/2025/09/JACK-AND-JONES.png" alt="Jack and Jones" onerror="this.style.background='#1C1C1C'">
+        <div class="proj-overlay"></div>
+        <div class="proj-info">
+          <div class="proj-client">Jack &amp; Jones</div>
+          <div class="proj-name">UAE Multi-Location</div>
+          <div class="proj-loc">UAE</div>
+        </div>
+      </div>
+    </div>
+    <div class="proj-cta">
+      <a href="projects.html" class="btn btn-red btn-arrow">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Clients ── -->
+<section class="clients-section">
+  <div class="clients-inner">
+    <div class="clients-hd">
+      <div class="s-label">Trusted By</div>
+      <h2 class="h2">Global brands. <em>Local precision.</em></h2>
+    </div>
+    <div class="client-grid rv">
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-001-scaled.png" alt="Adidas" onerror="this.style.display='none'">
+        <div class="client-name">Adidas</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-010-scaled.png" alt="Skechers" onerror="this.style.display='none'">
+        <div class="client-name">Skechers</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-002-scaled.png" alt="Birkenstock" onerror="this.style.display='none'">
+        <div class="client-name">Birkenstock</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-004-scaled.png" alt="Reebok" onerror="this.style.display='none'">
+        <div class="client-name">Reebok</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-003-scaled.png" alt="Asics" onerror="this.style.display='none'">
+        <div class="client-name">Asics</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-007-scaled.png" alt="Landmark" onerror="this.style.display='none'">
+        <div class="client-name">Landmark</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-006-scaled.png" alt="Apparel Group" onerror="this.style.display='none'">
+        <div class="client-name">Apparel Group</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-005-scaled.png" alt="Nesto" onerror="this.style.display='none'">
+        <div class="client-name">Nesto</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-008-scaled.png" alt="Brands For Less" onerror="this.style.display='none'">
+        <div class="client-name">Brands For Less</div>
+      </div>
+      <div class="client-cell">
+        <img src="https://800retail.com/wp-content/uploads/2025/07/HM-LOGOS-009-scaled.png" alt="Brand Folio" onerror="this.style.display='none'">
+        <div class="client-name">Brand Folio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CEO Quote ── -->
+<section class="ceo-section">
+  <img class="ceo-img rv"
+    src="https://800retail.com/wp-content/uploads/2025/07/CEO-02-1.jpg"
+    alt="Muhammed Manaf, CEO"
+    onerror="this.style.display='none'">
+  <div class="rv d1">
+    <div class="ceo-mark">"</div>
+    <blockquote class="ceo-quote">Every space we build has a soul — because behind every project, there's a person, a purpose, a vision. It's never about how big or small the project is. It's about meaning.</blockquote>
+    <div class="ceo-name">Muhammed Manaf</div>
+    <div class="ceo-title">CEO, Al Ameen Group</div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="f-logo">
+        <img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions">
+        <span class="logo-fallback"><span class="r">800</span> RETAIL</span>
+      </div>
+      <p class="body">The Middle East's largest retail fixture manufacturer. Turning brand visions into unforgettable store environments since 1997.</p>
+      <div class="f-socials">
+        <a href="https://www.facebook.com/800SIGN" target="_blank" rel="noopener" class="f-soc">fb</a>
+        <a href="https://www.instagram.com/retailfixtures" target="_blank" rel="noopener" class="f-soc">ig</a>
+        <a href="https://www.linkedin.com/company/alameengroup/" target="_blank" rel="noopener" class="f-soc">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="company.html">Who We Are</a></li>
+        <li><a href="company.html#history">Our History</a></li>
+        <li><a href="company.html#ceo">CEO Message</a></li>
+        <li><a href="company.html#locations">Locations</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services.html#fixtures">Retail Fixtures</a></li>
+        <li><a href="services.html#led">Retail LED</a></li>
+        <li><a href="services.html#lighting">Retail Lighting</a></li>
+        <li><a href="services.html#fitout">Store Fitout</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="contact.html">Request Consultation</a></li>
+        <li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li>
+        <li><a href="tel:+971505774860">+971 50 577 4860</a></li>
+        <li><a href="https://wa.me/971505774860" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group · All rights reserved</p>
+    <p class="footer-mark">Certified <span>Made in UAE</span> · Serving 25+ Countries</p>
+  </div>
+</footer>
+
+<!-- Floating contact -->
+<div class="contact-bar">
+  <a href="https://wa.me/971505774860" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+  <a href="tel:+971505774860" title="Call us">📞</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

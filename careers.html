@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers — 800 Retail Solutions</title>
+<meta name="description" content="Join the Middle East's largest retail fixture manufacturer. Open roles in design, engineering, operations and business development across UAE and KSA.">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.section { padding: 80px 0; }
+.section-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.section-dark { background: var(--dark); }
+
+.intro-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 48px; }
+.intro-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; filter: brightness(.78); }
+
+.val-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.val-card { background: var(--dark2); padding: 40px 28px; border-bottom: 3px solid transparent; transition: border-color .3s, background .3s; }
+.val-card:hover { border-color: var(--red); background: var(--dark3); }
+.val-ico { font-size: 28px; margin-bottom: 18px; display: block; }
+.val-title { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+.val-desc { font-size: 13px; line-height: 1.8; color: var(--gray); }
+
+.perks-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--dark3); margin-top: 48px; }
+.perk-card { background: var(--dark2); padding: 36px 24px; text-align: center; border-top: 3px solid transparent; transition: border-color .3s; }
+.perk-card:hover { border-color: var(--red); }
+.perk-ico { font-size: 28px; margin-bottom: 14px; display: block; }
+.perk-title { font-family: var(--cond); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--silver); margin-bottom: 8px; }
+.perk-desc { font-size: 12.5px; line-height: 1.75; color: var(--gray); }
+
+.role-filters { display: flex; gap: 2px; overflow-x: auto; margin: 32px 0 2px; border-bottom: 1px solid var(--dark3); }
+.rf { font-family: var(--cond); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 13px 18px; color: var(--gray); background: none; border: none; border-bottom: 2px solid transparent; white-space: nowrap; transition: color .2s, border-color .2s; cursor: pointer; }
+.rf:hover { color: var(--white); }
+.rf.on { color: var(--red); border-bottom-color: var(--red); }
+
+.role-list { display: flex; flex-direction: column; gap: 1px; }
+.role-item { background: var(--dark2); padding: 24px 28px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; transition: background .2s; border-left: 3px solid transparent; transition: background .2s, border-color .2s; }
+.role-item:hover { background: var(--dark3); border-left-color: var(--red); }
+.role-title { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.role-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.r-tag { font-family: var(--cond); font-size: 9px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); border: 1px solid var(--dark4); padding: 4px 10px; }
+.r-tag.urgent { color: var(--red); border-color: rgba(196,30,30,.4); background: rgba(196,30,30,.07); }
+.r-apply { font-family: var(--cond); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(196,30,30,.4); padding: 10px 20px; background: none; white-space: nowrap; transition: background .2s, color .2s, border-color .2s; text-decoration: none; }
+.role-item:hover .r-apply { background: var(--red); color: var(--white); border-color: var(--red); }
+
+.process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 52px; position: relative; }
+.process-steps::before { content: ''; position: absolute; top: 26px; left: 12%; right: 12%; height: 1px; background: var(--dark3); z-index: 0; }
+.step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.step-circle { width: 52px; height: 52px; border-radius: 50%; background: var(--red); color: var(--white); font-family: var(--cond); font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.step-title { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 8px; }
+.step-desc { font-size: 12.5px; line-height: 1.75; color: var(--gray); }
+
+.spec-band { background: var(--red); padding: 64px var(--pad); display: flex; justify-content: space-between; align-items: center; gap: 32px; max-width: 100%; }
+.spec-left h2 { font-family: var(--serif); font-size: clamp(26px,3.5vw,46px); font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 10px; }
+.spec-left h2 em { font-style: italic; }
+.spec-left p { font-size: 15px; color: rgba(255,255,255,.65); }
+.btn-dark-solid { display: inline-flex; align-items: center; gap: 10px; font-family: var(--cond); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 14px 32px; background: var(--black); color: var(--white); border: 1.5px solid var(--black); transition: background .2s; white-space: nowrap; }
+.btn-dark-solid:hover { background: var(--dark3); }
+
+@media(max-width:1024px) {
+  .intro-layout { grid-template-columns: 1fr; gap: 40px; }
+  .val-grid { grid-template-columns: 1fr 1fr; }
+  .perks-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .process-steps::before { display: none; }
+  .spec-band { flex-direction: column; align-items: flex-start; }
+}
+@media(max-width:768px) {
+  .val-grid,.perks-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .role-item { grid-template-columns: 1fr; gap: 12px; }
+  .role-filters { gap: 0; }
+}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions" width="140" height="38"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></a><ul class="nav-menu"><li class="nav-item"><span data-toggle>Company <span class="nav-chevron"></span></span><div class="nav-dropdown wide"><div class="dd-col"><div class="dd-heading">About</div><a href="company.html" class="dd-link">Who We Are <span class="dd-arrow">→</span></a><a href="company.html#history" class="dd-link">Our History <span class="dd-arrow">→</span></a><a href="company.html#ceo" class="dd-link">CEO Message <span class="dd-arrow">→</span></a><a href="company.html#certifications" class="dd-link">Certifications <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="company.html#locations" class="dd-link">Our Locations <span class="dd-arrow">→</span></a><a href="company.html#own-brand" class="dd-link">Own Brand <span class="dd-arrow">→</span></a></div><div class="dd-col"><div class="dd-heading">Services</div><a href="services.html#fixtures" class="dd-link">Retail Fixtures <span class="dd-arrow">→</span></a><a href="services.html#led" class="dd-link">Retail LED <span class="dd-arrow">→</span></a><a href="services.html#lighting" class="dd-link">Retail Lighting <span class="dd-arrow">→</span></a><a href="services.html#fitout" class="dd-link">Store Fitout <span class="dd-arrow">→</span></a><div class="dd-divider"></div><a href="careers.html" class="dd-link active">Careers <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><span data-toggle>Reference <span class="nav-chevron"></span></span><div class="nav-dropdown"><div class="dd-col"><div class="dd-heading">Portfolio</div><a href="projects.html" class="dd-link">All Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fixture Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">LED Projects <span class="dd-arrow">→</span></a><a href="projects.html" class="dd-link">Fitout Projects <span class="dd-arrow">→</span></a></div></div></li><li class="nav-item"><a href="contact.html">Contact</a></li></ul><div class="nav-right"><a href="contact.html" class="nav-cta">Request Consultation</a><button class="nav-burger" id="burger"><span></span><span></span><span></span></button></div></div></nav>
+<div id="nav-drawer"><div class="drawer-inner"><div class="drawer-section"><div class="drawer-section-title">Company</div><a href="company.html" class="drawer-link">Who We Are</a><a href="company.html#history" class="drawer-link">Our History</a><a href="company.html#locations" class="drawer-link">Locations</a></div><div class="drawer-section"><div class="drawer-section-title">Services</div><a href="services.html#fixtures" class="drawer-link">Retail Fixtures</a><a href="services.html#led" class="drawer-link">Retail LED</a><a href="services.html#lighting" class="drawer-link">Retail Lighting</a><a href="services.html#fitout" class="drawer-link">Store Fitout</a></div><div class="drawer-section"><div class="drawer-section-title">Reference</div><a href="projects.html" class="drawer-link">All Projects</a></div><div class="drawer-section"><div class="drawer-section-title">More</div><a href="careers.html" class="drawer-link">Careers</a></div><a href="contact.html" class="drawer-cta">Request Consultation →</a></div></div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-bg-num">450+</div>
+    <div class="page-hero-eyebrow">Join the Team</div>
+    <h1>Build your career.<br><em>Build the future</em> of retail.</h1>
+    <p>450+ professionals across UAE, KSA, and China. Growing fast — looking for people who take craftsmanship seriously.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="intro-layout">
+        <img class="intro-img rv" src="https://800retail.com/wp-content/uploads/2025/11/ADIDAS-TEAM-MEETING.jpg" alt="Team at work" onerror="this.style.background='#1C1C1C'">
+        <div>
+          <div class="s-label rv">Why Join Us</div>
+          <h2 class="h2 rv d1">A company that <em>builds things</em></h2>
+          <p class="body rv d2" style="margin-bottom:16px">We're not a typical corporate environment. We're a manufacturing company — and that means real work, real ownership, and real results you can see and touch.</p>
+          <p class="body rv d2" style="margin-bottom:16px">When you join Al Ameen, you join a team that has delivered projects for Adidas, BOSS, Birkenstock and 450+ brands across 25 countries. Your work shows up in some of the world's most recognised retail stores.</p>
+          <p class="body rv d3">We invest in people for the long term. Many senior team members started in junior roles and grew with the business. We promote from within, and we give people room to grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="s-label rv">Our Values</div>
+      <h2 class="h2 rv d1">What drives <em>us</em></h2>
+      <div class="val-grid">
+        <div class="val-card rv"><span class="val-ico">⬡</span><div class="val-title">Craftsmanship First</div><p class="val-desc">We take pride in every weld, every joint, every finish. Quality isn't a checkbox — it's a habit built over 27 years.</p></div>
+        <div class="val-card rv d1"><span class="val-ico">◈</span><div class="val-title">Continuous Innovation</div><p class="val-desc">From robotic fabrication to modular smart fixtures — we invest in technologies that keep our clients ahead.</p></div>
+        <div class="val-card rv d2"><span class="val-ico">▣</span><div class="val-title">Ownership Mindset</div><p class="val-desc">Every team member is accountable for their output. We trust our people and give them autonomy to deliver.</p></div>
+        <div class="val-card rv"><span class="val-ico">◻</span><div class="val-title">Global Perspective</div><p class="val-desc">UAE-born, internationally minded. We operate across three continents and build for the world's best brands.</p></div>
+        <div class="val-card rv d1"><span class="val-ico">♻</span><div class="val-title">Sustainability</div><p class="val-desc">80% sustainable materials across all production. We build for today without compromising tomorrow.</p></div>
+        <div class="val-card rv d2"><span class="val-ico">✦</span><div class="val-title">People & Purpose</div><p class="val-desc">Every space we build has a soul. We hire people who understand that behind every project there's a purpose.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="s-label rv">Benefits & Perks</div>
+      <h2 class="h2 rv d1">We look after <em>our people</em></h2>
+      <div class="perks-grid">
+        <div class="perk-card rv"><span class="perk-ico">🏥</span><div class="perk-title">Health Cover</div><p class="perk-desc">Comprehensive medical insurance for all full-time employees across UAE and KSA.</p></div>
+        <div class="perk-card rv d1"><span class="perk-ico">📈</span><div class="perk-title">Growth Path</div><p class="perk-desc">Structured career development with clear progression routes across all departments.</p></div>
+        <div class="perk-card rv d2"><span class="perk-ico">✈</span><div class="perk-title">Travel Opportunities</div><p class="perk-desc">International projects across UAE, KSA, Qatar and beyond — hands-on global exposure.</p></div>
+        <div class="perk-card rv d3"><span class="perk-ico">🎓</span><div class="perk-title">Training & Upskilling</div><p class="perk-desc">In-house and external training programmes. We fund skills development that benefits you and the business.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="roles">
+    <div class="section-inner">
+      <div class="s-label rv">Open Positions</div>
+      <h2 class="h2 rv d1">Current <em>opportunities</em></h2>
+      <div class="role-filters rv d2" data-filter-group>
+        <button class="rf on" data-filter="all">All Roles</button>
+        <button class="rf" data-filter="design">Design</button>
+        <button class="rf" data-filter="engineering">Engineering</button>
+        <button class="rf" data-filter="operations">Operations</button>
+        <button class="rf" data-filter="commercial">Commercial</button>
+        <button class="rf" data-filter="uae">UAE</button>
+        <button class="rf" data-filter="ksa">KSA</button>
+      </div>
+      <div class="role-list">
+        <div class="role-item rv">
+          <div><div class="role-title">Senior Retail Interior Designer</div><div class="role-meta"><span class="r-tag urgent">Urgent</span><span class="r-tag">Dubai, UAE</span><span class="r-tag">Full Time</span><span class="r-tag">Design</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv d1">
+          <div><div class="role-title">Project Manager — Retail Fitout</div><div class="role-meta"><span class="r-tag urgent">Urgent</span><span class="r-tag">Riyadh, KSA</span><span class="r-tag">Full Time</span><span class="r-tag">Operations</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv d2">
+          <div><div class="role-title">CNC Machine Operator</div><div class="role-meta"><span class="r-tag">Dubai, UAE</span><span class="r-tag">Full Time</span><span class="r-tag">Engineering</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv">
+          <div><div class="role-title">Business Development Manager</div><div class="role-meta"><span class="r-tag">Dubai, UAE</span><span class="r-tag">Full Time</span><span class="r-tag">Commercial</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv d1">
+          <div><div class="role-title">LED Systems Engineer</div><div class="role-meta"><span class="r-tag">Dubai, UAE</span><span class="r-tag">Full Time</span><span class="r-tag">Engineering</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv d2">
+          <div><div class="role-title">Retail Lighting Consultant</div><div class="role-meta"><span class="r-tag">Dubai, UAE</span><span class="r-tag">Full Time</span><span class="r-tag">Design</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv">
+          <div><div class="role-title">Supply Chain Coordinator — China Hub</div><div class="role-meta"><span class="r-tag">Foshan, China</span><span class="r-tag">Full Time</span><span class="r-tag">Operations</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+        <div class="role-item rv d1">
+          <div><div class="role-title">Graduate Internship — Design Studio</div><div class="role-meta"><span class="r-tag">Dubai, UAE</span><span class="r-tag">Internship</span><span class="r-tag">Design</span></div></div>
+          <a href="contact.html" class="r-apply">Apply Now →</a>
+        </div>
+      </div>
+      <div style="margin-top:40px;text-align:center">
+        <p class="body" style="margin-bottom:20px;font-size:13px">Don't see the right role? Send a speculative application.</p>
+        <a href="contact.html" class="btn btn-outline-red rv">Submit Speculative Application →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="s-label rv">How to Apply</div>
+      <h2 class="h2 rv d1">A straightforward <em>process</em></h2>
+      <div class="process-steps">
+        <div class="step rv"><div class="step-circle">01</div><div class="step-title">Apply Online</div><p class="step-desc">Submit your application and CV via our contact page. Tell us what you're looking for and what you bring.</p></div>
+        <div class="step rv d1"><div class="step-circle">02</div><div class="step-title">Initial Review</div><p class="step-desc">Our HR team reviews every application within 5 business days and responds with next steps.</p></div>
+        <div class="step rv d2"><div class="step-circle">03</div><div class="step-title">Interview</div><p class="step-desc">A conversation with the relevant department head — focused on your experience and ambitions.</p></div>
+        <div class="step rv d3"><div class="step-circle">04</div><div class="step-title">Offer & Onboarding</div><p class="step-desc">Successful candidates receive a formal offer. Our onboarding programme sets you up from day one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="spec-band">
+    <div class="spec-left">
+      <h2>Don't see the right role?<br><em>Send us your CV anyway.</em></h2>
+      <p>We're always growing. If you're talented and passionate about retail manufacturing, we want to hear from you.</p>
+    </div>
+    <a href="contact.html" class="btn-dark-solid">Submit a Speculative Application →</a>
+  </div>
+</div>
+
+<footer><div class="footer-main"><div class="footer-brand"><div class="f-logo"><img class="logo-img" src="https://800retail.com/wp-content/uploads/2025/06/800-logo.svg" alt="800 Retail Solutions"><span class="logo-fallback"><span class="r">800</span> RETAIL</span></div><p class="body">The Middle East's largest retail fixture manufacturer.</p><div class="f-socials"><a href="https://www.facebook.com/800SIGN" target="_blank" class="f-soc">fb</a><a href="https://www.instagram.com/retailfixtures" target="_blank" class="f-soc">ig</a><a href="https://www.linkedin.com/company/alameengroup/" target="_blank" class="f-soc">in</a></div></div><div class="footer-col"><h5>Careers</h5><ul><li><a href="careers.html#roles">Open Roles</a></li><li><a href="careers.html">Our Values</a></li><li><a href="contact.html">Apply Now</a></li></ul></div><div class="footer-col"><h5>Company</h5><ul><li><a href="company.html">About Us</a></li><li><a href="company.html#locations">Locations</a></li><li><a href="services.html">Services</a></li></ul></div><div class="footer-col"><h5>Contact</h5><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:ask@800retail.com">ask@800retail.com</a></li><li><a href="tel:+971505774860">+971 50 577 4860</a></li></ul></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 800 Retail Solutions · Al Ameen Group · All rights reserved</p><p class="footer-mark">Certified <span>Made in UAE</span></p></div></footer>
+<div class="contact-bar"><a href="https://wa.me/971505774860" target="_blank" title="WhatsApp">💬</a><a href="tel:+971505774860" title="Call">📞</a></div>
+<script src="js/main.js"></script>
+</body>
+</html>
