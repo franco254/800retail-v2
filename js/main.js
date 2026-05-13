@@ -114,3 +114,28 @@ function handleSubmit(btn) {
     btn.disabled = false;
   }, 5000);
 }
+
+/* ── Theme toggle (light / dark mode) ── */
+const themeToggle = document.getElementById('theme-toggle');
+const THEME_KEY = '800retail-theme';
+
+function applyTheme(theme) {
+  if (theme === 'light') {
+    document.body.classList.add('light');
+    if (themeToggle) themeToggle.textContent = '🌙';
+  } else {
+    document.body.classList.remove('light');
+    if (themeToggle) themeToggle.textContent = '☀️';
+  }
+}
+
+// Load saved preference
+const savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+applyTheme(savedTheme);
+
+themeToggle?.addEventListener('click', () => {
+  const isLight = document.body.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+});
