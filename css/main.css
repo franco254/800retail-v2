@@ -791,3 +791,30 @@ html.pre-light body {
   background: #F5F5F5;
   color: #1A1A1A;
 }
+
+/* ── Light mode: override all dark variable usage in page-specific styles ── */
+body.light {
+  --black:   #F5F5F5;
+  --dark:    #ECECEC;
+  --dark2:   #E4E4E4;
+  --dark3:   #D8D8D8;
+  --dark4:   #AAAAAA;
+  --gray:    #555555;
+  --gray-lt: #444444;
+  --silver:  #333333;
+  --white:   #0C0C0C;
+  --off-white: #1A1A1A;
+}
+
+/* Keep red brand color intact */
+body.light {
+  --red:       #C41E1E;
+  --red-dark:  #9A1515;
+  --red-light: #E02424;
+}
+
+/* Nav overrides for light (re-apply since vars changed) */
+body.light #nav { background: rgba(236,236,236,0.97); }
+body.light #nav.solid { background: #ECECEC; box-shadow: 0 1px 0 rgba(0,0,0,0.1); }
+body.light .nav-cta { color: #FFFFFF; }
+body.light .logo-img { filter: invert(1) brightness(0.1); }
