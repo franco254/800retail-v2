@@ -485,6 +485,7 @@
   .ceo-section { padding: 60px var(--pad); }
 }
 </style>
+<script>if(localStorage.getItem("800retail-theme")==="light")document.documentElement.classList.add("pre-light");</script>
 </head>
 <body>
 
@@ -545,6 +546,7 @@
 
     <div class="nav-right">
       <a href="contact.html" class="nav-cta">Request Consultation</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
       <button class="nav-burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
